@@ -34,84 +34,104 @@ module Soc_Mips
 	parameter DATA_DIR_WIDTH = 8,
 	parameter ALU_WIDTH = 8,
 	parameter EXCEPTION_JMP = 6'b111111)
-	(input clk,rst,
-	output [PC_WIDTH-1:0]PCout,
-	output [REG_WIDTH-1:0]WriteBack,
-	output [REG_DIR_WIDTH-1:0]readr1,readr2,
-	output [ALU_WIDTH-1:0] Alu1,Alu2,ALUResult,
-	output [2:0] ALUOp2,
-	output [REG_WIDTH-1:0]readd1,readd2,reg1,reg2,Register1,Register2,Register3,Register4,
-	output [1:0] Forward_A, Forward_B,
-	output Overflow,
-	output [2:0] ExceptionCause,
-	output [PC_WIDTH-1:0] ExceptionPC,
+	(input clk,rst,MemSet,
+	input [2:0] MemVal,
+	input [1:0] MemNum,
+	output [DATA_WIDTH-1:0] WriteBack,
+	output [ALU_WIDTH-1:0] ALUResult,
+	output [PC_WIDTH-1:0] PCout,
+	output [REG_WIDTH-1:0] Register1, Register2, Register3, Register4,
+	output [2:0] ExceptionCause
 	
-	output reg [31:0] 			 		IFID_Instruction,
-	output reg [PC_WIDTH-1:0] 			IFID_PCNext,
-	output reg [PC_WIDTH-1:0]			IFID_PC,
+	//output [PC_WIDTH-1:0]PCout,
+	//output [REG_WIDTH-1:0]WriteBack,
+	//output [REG_DIR_WIDTH-1:0]readr1,readr2,
+	//output [ALU_WIDTH-1:0] Alu1,Alu2,ALUResult,
+	//output [2:0] ALUOp2,
+	//output [REG_WIDTH-1:0]readd1,readd2,reg1,reg2,
+	//output [1:0] Forward_A, Forward_B,
+	//output Overflow,
+	//output [2:0] ExceptionCause,
+	//output [PC_WIDTH-1:0] ExceptionPC,
+	//output Exception,
 	
-	output reg [7:0] 						IDEX_ControlSignals,
-	output reg [PC_WIDTH-1:0]			IDEX_PC,
-	output reg [REG_WIDTH-1:0]	   	IDEX_ReadData1,
-	output reg [REG_WIDTH-1:0] 	 	IDEX_ReadData2,
-	output reg [EXT_OUT_WIDTH-1:0] 	IDEX_SignExtend,
-	output reg [REG_DIR_WIDTH-1:0] 	IDEX_RegisterRs,
-	output reg [REG_DIR_WIDTH-1:0] 	IDEX_RegisterRt,
-	output reg [REG_DIR_WIDTH-1:0] 	IDEX_RegisterRd,
+	//output reg [31:0] 			 		IFID_Instruction,
+	//output reg [PC_WIDTH-1:0] 			IFID_PCNext,
+	//output reg [PC_WIDTH-1:0]			IFID_PC,
 	
-	output reg [3:0] 						EXMEM_ControlSignals,
-	output reg [ALU_WIDTH-1:0] 		EXMEM_ALUResult,
-	output reg [REG_WIDTH-1:0] 		EXMEM_ReadData2,
-	output reg [REG_DIR_WIDTH-1:0] 	EXMEM_RegisterRd,
+	//output reg [7:0] 						IDEX_ControlSignals,
+	//output reg [PC_WIDTH-1:0]			IDEX_PC,
+	//output reg [REG_WIDTH-1:0]	   	IDEX_ReadData1,
+	//output reg [REG_WIDTH-1:0] 	 	IDEX_ReadData2,
+	//output reg [EXT_OUT_WIDTH-1:0] 	IDEX_SignExtend,
+	//output reg [REG_DIR_WIDTH-1:0] 	IDEX_RegisterRs,
+	//output reg [REG_DIR_WIDTH-1:0] 	IDEX_RegisterRt,
+	//output reg [REG_DIR_WIDTH-1:0] 	IDEX_RegisterRd,
 	
-	output reg [1:0] 						MEMWB_ControlSignals,
-	output reg [DATA_WIDTH-1:0] 		MEMWB_ReadData,
-	output reg [ALU_WIDTH-1:0] 		MEMWB_Address,
-	output reg [REG_DIR_WIDTH-1:0] 	MEMWB_RegisterRd
+	//output reg [3:0] 						EXMEM_ControlSignals,
+	//output reg [ALU_WIDTH-1:0] 		EXMEM_ALUResult,
+	//output reg [REG_WIDTH-1:0] 		EXMEM_ReadData2,
+	//output reg [REG_DIR_WIDTH-1:0] 	EXMEM_RegisterRd,
+	
+	//output reg [1:0] 						MEMWB_ControlSignals,
+	//output reg [DATA_WIDTH-1:0] 		MEMWB_ReadData,
+	//output reg [ALU_WIDTH-1:0] 		MEMWB_Address,
+	//output reg [REG_DIR_WIDTH-1:0] 	MEMWB_RegisterRd
 );                           
 	
 	wire [DATA_WIDTH-1:0] Data;
 	wire [ALU_WIDTH-1:0]data2;
 	wire [31:0]Instruction;
 	wire [PC_WIDTH-1:0] PCnext,ALUR;
-	wire ALUSrc,MemtoReg,Branch,PCWrite,IFIDWrite,CControl,Iguales,IF_Flush,ID_Flush,EX_Flush,MemRead,MemWrite,RegWrite;
+	wire ALUSrc,MemtoReg,Branch,PCWrite,Ov,Z,IFIDWrite,CControl,Iguales,IF_Flush,ID_Flush,EX_Flush,MemRead,MemWrite,RegWrite;
 	wire [1:0] ALUop;
 	wire [REG_DIR_WIDTH-1:0] WriteReg;
 	wire [EXT_OUT_WIDTH-1:0] SignExtendOut;
 	
-	assign readr1 = IFID_Instruction[REG_DIR_WIDTH+20:21];
-	assign readr2 = IFID_Instruction[REG_DIR_WIDTH+15:16];
+	wire [REG_DIR_WIDTH-1:0]readr1,readr2;
+	wire [ALU_WIDTH-1:0] Alu1,Alu2;
+	wire [2:0] ALUOp2;
+	wire [REG_WIDTH-1:0]readd1,readd2,reg1,reg2;
+	wire [1:0] Forward_A, Forward_B;
+	wire [PC_WIDTH-1:0] ExceptionPC;
+	
+	reg [31:0] 			 			IFID_Instruction;
+	reg [PC_WIDTH-1:0] 			IFID_PCNext;
+	reg [PC_WIDTH-1:0]			IFID_PC;
+	
+	reg [7:0] 						IDEX_ControlSignals;
+	reg [PC_WIDTH-1:0]			IDEX_PC;
+	reg [REG_WIDTH-1:0]	   	IDEX_ReadData1;
+	reg [REG_WIDTH-1:0] 	 		IDEX_ReadData2;
+	reg [EXT_OUT_WIDTH-1:0] 	IDEX_SignExtend;
+	reg [REG_DIR_WIDTH-1:0] 	IDEX_RegisterRs;
+	reg [REG_DIR_WIDTH-1:0] 	IDEX_RegisterRt;
+	reg [REG_DIR_WIDTH-1:0] 	IDEX_RegisterRd;
+	
+	reg [3:0] 						EXMEM_ControlSignals;
+	reg [ALU_WIDTH-1:0] 			EXMEM_ALUResult;
+	reg [REG_WIDTH-1:0] 			EXMEM_ReadData2;
+	reg [REG_DIR_WIDTH-1:0] 	EXMEM_RegisterRd;
+	
+	reg [1:0] 						MEMWB_ControlSignals;
+	reg [DATA_WIDTH-1:0] 		MEMWB_ReadData;
+	reg [ALU_WIDTH-1:0] 			MEMWB_Address;
+	reg [REG_DIR_WIDTH-1:0] 	MEMWB_RegisterRd;
+	
+	//assign readr1 = IFID_Instruction[REG_DIR_WIDTH+20:21];
+	//assign readr2 = IFID_Instruction[REG_DIR_WIDTH+15:16];
+	
 //	parameter IFIDsize = 32+PC_WIDTH;
 //	parameter IDEXsize = 9+PC_WIDTH+REG_WIDTH+REG_WIDTH+EXT_OUT_WIDTH+REG_DIR_WIDTH+REG_DIR_WIDTH;
 //	parameter EXMEMsize = 5+PC_WIDTH+1+ALU_WIDTH+REG_WIDTH+REG_DIR_WIDTH;
 //	parameter MEMWBsize = 2+DATA_WIDTH+ALU_WIDTH+REG_DIR_WIDTH;
 	
-	//reg [31:0] 			 		IFID_Instruction;
-	//reg [PC_WIDTH-1:0] 		IFID_PCNext;
-	
-	//reg [7:0] 					IDEX_ControlSignals;
-	//reg [REG_WIDTH-1:0]	   IDEX_ReadData1;
-	//reg [REG_WIDTH-1:0] 		IDEX_ReadData2;
-	//reg [EXT_OUT_WIDTH-1:0] IDEX_SignExtend;
-	//reg [REG_DIR_WIDTH-1:0] IDEX_RegisterRs;
-	//reg [REG_DIR_WIDTH-1:0] IDEX_RegisterRt;
-	//reg [REG_DIR_WIDTH-1:0] IDEX_RegisterRd;
-	
-	//reg [3:0] 					EXMEM_ControlSignals;
-	//reg 							EXMEM_Overflow;
-	//reg [ALU_WIDTH-1:0] 		EXMEM_ALUResult;
-	//reg [REG_WIDTH-1:0] 		EXMEM_ReadData2;
-	//reg [REG_DIR_WIDTH-1:0] EXMEM_RegisterRd;
-	
-	//reg [1:0] 					MEMWB_ControlSignals;
-	//reg [DATA_WIDTH-1:0] 	MEMWB_ReadData;
-	//reg [ALU_WIDTH-1:0] 		MEMWB_Address;
-	//reg [REG_DIR_WIDTH-1:0] MEMWB_RegisterRd;
-	
 //	reg [IFIDsize-1:0] IFID;
 //	reg [IDEXsize-1:0] IDEX;
 //	reg [EXMEMsize-1:0] EXMEM;
 //	reg [MEMWBsize-1:0] MEMWB;
+
+
 
 
 	IF IF (
@@ -145,7 +165,8 @@ module Soc_Mips
 				IFID_Instruction  <= 0;
 				IFID_PCNext			<= 0;
 				IFID_PC 				<= 0;
-			end		
+			end
+			
 			
 	ID ID (
     .clk(clk), 
@@ -228,14 +249,15 @@ module Soc_Mips
 	 .Forward_A(Forward_A),
 	 .Forward_B(Forward_B),
 	 .WBData(WriteBack),
-	 .Address(EXMEM_ALUResult),   //El mismo que entra en Address en la memoria de datos
-    .ALUResult(ALUResult), 		//Salida de la ALU
+	 .Address(EXMEM_ALUResult),  //El mismo que entra en Address en la memoria de datos
+    .ALUResult(ALUResult), //Salida de la ALU
 	 .WriteReg(WriteReg),
 	 .data2(data2),
 	 .data1(Alu1),
 	 .data2_2(Alu2),
 	 .ALUCtrl(ALUOp2),
-	 .Ov(Overflow)
+	 .Ov(Ov),
+	 .Zero(Z)
     );
 	 
 	 always@(posedge clk or posedge rst)
@@ -252,7 +274,7 @@ module Soc_Mips
 					EXMEM_ControlSignals <= 0;
 				else if( EX_Flush == 0 )
 					EXMEM_ControlSignals <= IDEX_ControlSignals[3:0]; 			//MemRead,MemWrite,RegWrite,MemtoReg
-					
+						
 				EXMEM_ALUResult		<= ALUResult;
 				EXMEM_ReadData2		<= data2;
 				EXMEM_RegisterRd		<= WriteReg;
@@ -265,7 +287,10 @@ module Soc_Mips
     .MemRead(EXMEM_ControlSignals[3]), 
     .Address(EXMEM_ALUResult), 
     .WriteData(EXMEM_ReadData2), 
-    .ReadData(Data)
+    .ReadData(Data),
+	 .MemSet(MemSet),
+	 .MemVal(MemVal),
+	 .MemNum(MemNum)
     );
 
 	always@(posedge clk or posedge rst)
@@ -313,9 +338,8 @@ module Soc_Mips
     );
 	 
 	 ExceptionUnit Exceptions (
-    .Ov(Overflow),
+    .Ov(Ov),
 	 .rst(rst),
-	 .clk(clk),
     .RegisterRs(IFID_Instruction[25:21]), 
     .RegisterRt(IFID_Instruction[20:16]), 
     .RegisterRd(IFID_Instruction[15:11]), 

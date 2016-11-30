@@ -1,0 +1,48 @@
+# Period constraint for 50MHz operation
+NET "clk" PERIOD = 20.0ns HIGH 50%;
+# soldered 50MHz Clock.
+NET "clk" LOC = "C9" | IOSTANDARD = LVTTL;
+# BTN_SOUTH
+NET "rst" LOC = "K17" | IOSTANDARD = LVTTL | PULLDOWN ;
+# Simple LEDs 
+# Require only 3.5mA. 
+NET "led<0>" LOC = "F12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "led<1>" LOC = "E12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "led<2>" LOC = "E11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "led<3>" LOC = "F11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "led<4>" LOC = "C11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "led<5>" LOC = "D11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "led<6>" LOC = "E9"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "led<7>" LOC = "F9"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+# Rotary encoder. 
+#   Rotation contacts require pull UP resistors to provide High level.
+#   Press contact requires pull DOWN resistor to provide Low when not pressed..
+#ROT_A
+NET "a" LOC = "K18" | IOSTANDARD = LVTTL | PULLUP ;
+#ROT_B
+NET "b" LOC = "G18" | IOSTANDARD = LVTTL | PULLUP ;
+#ROT_CENTER
+NET "c" LOC = "V16" | IOSTANDARD = LVTTL | PULLDOWN ;
+
+# LCD control inputs
+NET "lcd_e" 	LOC = M18 | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+NET "lcd_rs" 	LOC = L18 | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+NET "lcd_rw" 	LOC = L17 | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+
+# The LCD four-bit data interface
+NET "lcd_4" 	LOC = R15 | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+NET "lcd_5" 	LOC = R16 | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+NET "lcd_6" 	LOC = P17 | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+NET "lcd_7" 	LOC = M15 | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+
+# Switches
+NET "op<0>" LOC = "L13" | IOSTANDARD = LVTTL | PULLUP ;
+NET "op<1>" LOC = "L14" | IOSTANDARD = LVTTL | PULLUP ;
+NET "op<2>" LOC = "H18" | IOSTANDARD = LVTTL | PULLUP ;
+
+# ==== VGA Port (VGA) ====
+#NET "B" LOC = "G15" | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+#NET "G" LOC = "H15" | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+#NET "HS" LOC = "F15" | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+#NET "R" LOC = "H14" | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+#NET "VS" LOC = "F14" | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;

@@ -1,0 +1,32 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Thu Jan 07 16:35:18 2016
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "a" LOCATE = SITE "K18" LEVEL 1;
+COMP "b" LOCATE = SITE "G18" LEVEL 1;
+COMP "c" LOCATE = SITE "V16" LEVEL 1;
+COMP "clk" LOCATE = SITE "C9" LEVEL 1;
+COMP "rst" LOCATE = SITE "K17" LEVEL 1;
+COMP "op<0>" LOCATE = SITE "L13" LEVEL 1;
+COMP "op<1>" LOCATE = SITE "L14" LEVEL 1;
+COMP "op<2>" LOCATE = SITE "H18" LEVEL 1;
+COMP "lcd_4" LOCATE = SITE "R15" LEVEL 1;
+COMP "lcd_5" LOCATE = SITE "R16" LEVEL 1;
+COMP "lcd_6" LOCATE = SITE "P17" LEVEL 1;
+COMP "lcd_7" LOCATE = SITE "M15" LEVEL 1;
+COMP "lcd_e" LOCATE = SITE "M18" LEVEL 1;
+COMP "led<0>" LOCATE = SITE "F12" LEVEL 1;
+COMP "led<1>" LOCATE = SITE "E12" LEVEL 1;
+COMP "led<2>" LOCATE = SITE "E11" LEVEL 1;
+COMP "led<3>" LOCATE = SITE "F11" LEVEL 1;
+COMP "led<4>" LOCATE = SITE "C11" LEVEL 1;
+COMP "led<5>" LOCATE = SITE "D11" LEVEL 1;
+COMP "led<6>" LOCATE = SITE "E9" LEVEL 1;
+COMP "led<7>" LOCATE = SITE "F9" LEVEL 1;
+COMP "lcd_rs" LOCATE = SITE "L18" LEVEL 1;
+COMP "lcd_rw" LOCATE = SITE "L17" LEVEL 1;
+NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH 50%;
+SCHEMATIC END;
+

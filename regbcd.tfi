@@ -1,0 +1,17 @@
+
+
+
+// Instantiate the module
+regbcd instance_name (
+    ._state(_state), 
+    ._$1(_$1), 
+    ._$2(_$2), 
+    ._$3(_$3), 
+    ._$4(_$4), 
+    ._PC(_PC), 
+    ._MDR(_MDR), 
+    ._ALUOut(_ALUOut), 
+    .chars(chars)
+    );
+
+

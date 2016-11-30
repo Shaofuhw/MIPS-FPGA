@@ -32,7 +32,7 @@ module ExceptionUnit
 	parameter AND = 6'd36,
 	parameter OR  = 6'd37,
 	parameter SLT = 6'd42)
-	(input Ov,rst,clk,
+	(input Ov,rst,
 	input [4:0] RegisterRs, RegisterRt, RegisterRd,
 	input [5:0] OPCode, Function,
 	input [PC_WIDTH-1:0] IFID_PC, IDEX_PC,
@@ -45,14 +45,14 @@ module ExceptionUnit
 	//ExceptionCause = 3 = Dirección Registro Inválido
 	//ExceptionCause = 4 = Overflow en la ALU
 	
-	always@(posedge clk or posedge rst)
+	always@(OPCode or RegisterRs or RegisterRt or RegisterRd or Function or rst or Ov)
 		if( rst )
 			begin
 				ExceptionPC <= 0;
 				ExceptionCause <= 0;
 			end
 		
-		else if( Ov == 1 && ExceptionCause == 0)		//Excepción si hay overflow
+		else if( Ov == 1 && ExceptionCause == 0 )		//Excepción si hay overflow
 			begin
 				ExceptionPC <= IDEX_PC;
 				ExceptionCause <= 4;
@@ -69,8 +69,7 @@ module ExceptionUnit
 		//Excepción si Function no es ninguna de las implementadas en el caso de una operación tipo R
 		//El caso de Function 0 se descarta ya que empieza en cero tras un reset, para evitar que salte una excepción ahí
 			
-		else if( (OPCode == RTYPE) && (Function != ADD && Function != SUB && Function != AND && Function != OR &&
-					Function != SLT && Function != 0) && ExceptionCause == 0)
+		else if( (OPCode == RTYPE) && (Function != ADD && Function != SUB && Function != AND && Function != OR && Function != SLT && Function != 0) && ExceptionCause == 0)
 			begin
 				ExceptionPC <= IFID_PC;
 				ExceptionCause <= 2;

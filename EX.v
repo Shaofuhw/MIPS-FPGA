@@ -35,7 +35,7 @@ module EX
 	output [REG_DIR_WIDTH-1:0] WriteReg,
 	output [ALU_WIDTH-1:0] data1,data2,data2_2,
 	output [2:0] ALUCtrl,
-	output Ov
+	output Ov,Zero
    );
 	
 	assign data1 = ( Forward_A == 0 )? readd1:			//Se elige un valor dependiendo del valor de Forward
@@ -54,7 +54,8 @@ module EX
     .b(data2_2), 
     .op(ALUCtrl), 
     .result(ALUResult),
-	 .Ov(Ov)
+	 .Ov(Ov),
+	 .Zero(Zero)
     );
 	 
 	 ALUCtrl EX2 (

@@ -1,28 +1,29 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o C:/Users/Shao.Surface/Documents/Digital/Lab3v5/SocTB_isim_beh.exe -prj C:/Users/Shao.Surface/Documents/Digital/Lab3v5/SocTB_beh.prj work.SocTB work.glbl 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o C:/Users/Shao.Surface/Documents/Digital/Lab3v6/SocTB_isim_beh.exe -prj C:/Users/Shao.Surface/Documents/Digital/Lab3v6/SocTB_beh.prj work.SocTB work.glbl 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/UControl.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/SignExt.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/Registers.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/PC.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/IMemory.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/CJump.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/ALUCtrl.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/ALU.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/WB.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/MEM.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/IF.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/ID.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/HazardUnit.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/ForwardUnit.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/ExceptionUnit.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/EX.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/Soc_Mips.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/SocTB.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/UControl.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/SignExt.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Registers.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/PC.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/IMemory.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/CJump.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/ALUCtrl.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/ALU.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/WB.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/MEM.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/IF.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/ID.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/HazardUnit.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/ForwardUnit.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/ExceptionUnit.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/EX.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Soc_Mips.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/SocTB.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
+WARNING:HDLCompiler:1016 - "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/SocTB.v" Line 42: Port MemSet is not connected to this instance
 Completed static elaboration
 Compiling module PC
 Compiling module IMemory
@@ -44,8 +45,8 @@ Compiling module Soc_Mips
 Compiling module SocTB
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 7 sub-compilation(s) to finish...
+Waiting for 12 sub-compilation(s) to finish...
 Compiled 19 Verilog Units
-Built simulation executable C:/Users/Shao.Surface/Documents/Digital/Lab3v5/SocTB_isim_beh.exe
-Fuse Memory Usage: 27376 KB
-Fuse CPU Usage: 2171 ms
+Built simulation executable C:/Users/Shao.Surface/Documents/Digital/Lab3v6/SocTB_isim_beh.exe
+Fuse Memory Usage: 28168 KB
+Fuse CPU Usage: 2156 ms

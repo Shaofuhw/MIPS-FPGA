@@ -1,0 +1,16 @@
+
+
+
+// Instantiate the module
+rotary instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .a(a), 
+    .b(b), 
+    .c(c), 
+    .rotary_event(rotary_event), 
+    .rotary_left(rotary_left), 
+    .rotary_press(rotary_press)
+    );
+
+

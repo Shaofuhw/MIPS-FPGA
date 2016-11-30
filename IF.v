@@ -24,8 +24,8 @@ module IF
 	parameter CODE_DEPTH = 16,
 	parameter EXCEPTION_JMP = 6'b111111)
 	(input clk,rst,Branch,Zero,PCWrite,
-	input [PC_WIDTH-1:0] jmp_address,
 	input [2:0] ExceptionCause,
+	input [PC_WIDTH-1:0] jmp_address,
 	output [PC_WIDTH-1:0] PCnext,PCout,
 	output [31:0] Instruction
     );
@@ -42,7 +42,7 @@ module IF
 	 
 	assign PCnext = PCout + 4;
 	assign PCin = ( Branch == 1 && Zero == 1 )? jmp_address:
-					  ( ExceptionCause != 0 )? EXCEPTION_JMP:PCnext;		//En el caso de que una instrucción BEQ se cumpla o Excepción
+					  ( ExceptionCause != 0 )? 	  EXCEPTION_JMP:PCnext;		//En el caso de que una instrucción BEQ se cumpla
 		
 	IMemory IF2 (
     .Address(PCout), 

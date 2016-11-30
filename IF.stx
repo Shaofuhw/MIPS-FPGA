@@ -1,16 +1,16 @@
 Release 14.7 - xst P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
---> Parameter TMPDIR set to C:/Users/Shao.Surface/Documents/Digital/Lab3v5/xst/projnav.tmp
+--> Parameter TMPDIR set to C:/Users/Shao.Surface/Documents/Digital/Lab3/xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.56 secs
+Total CPU time to Xst completion: 0.11 secs
  
---> Parameter xsthdpdir set to C:/Users/Shao.Surface/Documents/Digital/Lab3v5/xst
+--> Parameter xsthdpdir set to C:/Users/Shao.Surface/Documents/Digital/Lab3/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.58 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
 
@@ -29,11 +29,11 @@ Analysis of file <"IF.prj"> succeeded.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.66 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> 
 
-Total memory usage is 256888 kilobytes
+Total memory usage is 256900 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    1 (   0 filtered)

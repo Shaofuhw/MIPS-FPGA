@@ -1,0 +1,148 @@
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Shao.Surface/Documents/Digital/DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Shao.Surface/Documents/Digital/DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Shao.Surface/Documents/Digital/DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Shao.Surface/Documents/Digital/DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Shao.Surface/Documents/Digital/DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Shao.Surface/Documents/Digital/DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Shao.Surface/Documents/Digital/DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Shao.Surface/Documents/Digital/DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Shao.Surface/Documents/Digital/DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Shao.Surface/Documents/Digital/DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Shao.Surface/Documents/Digital/DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Shao.Surface/Documents/Digital/DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Shao.Surface/Documents/Digital/DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Shao.Surface/Documents/Digital/DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Shao.Surface/Documents/Digital/DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Shao.Surface/Documents/Digital/DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Shao.Surface/Documents/Digital/DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/Shao.Surface/Documents/Digital/DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/Lab3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc DDlab3/lab3.ucf -p xc3s500e-fg320-4 Lab3.ngc Lab3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Lab3_map.ncd Lab3.ngd Lab3.pcf 
+par -w -intstyle ise -ol high -t 1 Lab3_map.ncd Lab3.ncd Lab3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Lab3.twx Lab3.ncd -o Lab3.twr Lab3.pcf 
+bitgen -intstyle ise -f Lab3.ut Lab3.ncd 

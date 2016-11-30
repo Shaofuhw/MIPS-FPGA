@@ -1,0 +1,17 @@
+
+
+
+// Instantiate the module
+lcd instance_name (
+    .clk(clk), 
+    .chars(chars), 
+    .lcd_rs(lcd_rs), 
+    .lcd_rw(lcd_rw), 
+    .lcd_e(lcd_e), 
+    .lcd_4(lcd_4), 
+    .lcd_5(lcd_5), 
+    .lcd_6(lcd_6), 
+    .lcd_7(lcd_7)
+    );
+
+

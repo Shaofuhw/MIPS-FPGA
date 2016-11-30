@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj Lab3 -o C:/Users/Shao.Surface/Documents/Digital/Lab3v6/rotary.tfi -lib work C:/Users/Shao.Surface/Documents/Digital/Lab2//rotary.v -module rotary -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/UControl.v";
+static const char *ng0 = "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/UControl.v";
 static unsigned int ng1[] = {0U, 0U};
 static int ng2[] = {1, 0};
 static int ng3[] = {0, 0};
@@ -1088,12 +1088,10 @@ LAB12:    t34 = (t0 + 1208U);
     t49 = (~(t48));
     t50 = (t45 & t49);
     if (t50 != 0)
-        goto LAB18;
+        goto LAB16;
 
 LAB15:    if (t48 != 0)
         goto LAB17;
-
-LAB16:    *((unsigned int *)t36) = 1;
 
 LAB18:    memset(t52, 0, 8);
     t53 = (t36 + 4);
@@ -1126,6 +1124,9 @@ LAB22:    t61 = *((unsigned int *)t22);
 
 LAB24:
 LAB25:    goto LAB14;
+
+LAB16:    *((unsigned int *)t36) = 1;
+    goto LAB18;
 
 LAB17:    t51 = (t36 + 4);
     *((unsigned int *)t36) = 1;

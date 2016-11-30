@@ -5,5 +5,8 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/Shao.Surface/Documents/Digital/Lab3v6/SocTB.v" Line 42: Port <arg fmt="%s" index="1">MemSet</arg> is not connected to this instance
+</msg>
+
 </messages>
 

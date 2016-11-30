@@ -21,11 +21,11 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/MEM.v";
+static const char *ng0 = "C:/Users/Shao.Surface/Documents/Digital/Lab3v6/MEM.v";
 static int ng1[] = {0, 0};
 static int ng2[] = {1, 0};
-static int ng3[] = {126, 0};
-static int ng4[] = {127, 0};
+static int ng3[] = {2, 0};
+static int ng4[] = {3, 0};
 
 
 

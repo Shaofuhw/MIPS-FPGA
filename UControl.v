@@ -33,9 +33,9 @@ module UControl(
 	assign sw = ( op == 6'b101011 )? 1:0;
 	assign beq = ( op == 6'b000100 )? 1:0;
 	
-	assign IF_Flush = ( (beq == 1 && Iguales == 1) || ExceptionCause != 0 )? 1:0;		//Señal que limpia en condición de salto
+	assign IF_Flush = ( (beq == 1 && Iguales != 1) || ExceptionCause != 0 )? 1:0;	//Señal que limpia en condición de salto
 	assign ID_Flush = ( ExceptionCause != 0 )? 1:0;				//Señales que paran el programa en caso de excepción
-	assign EX_Flush = ( ExceptionCause != 0 )? 1:0;				
+	assign EX_Flush = ( ExceptionCause != 0 )? 1:0;
 	
 	assign RegWrite = ( Rtype || lw )? 1:0;
 	assign ALUSrc = ( lw || sw )? 1:0;

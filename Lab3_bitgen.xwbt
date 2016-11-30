@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\Shao.Surface\Documents\Digital\Lab3v6\Lab3.ncd
+OUTFILE=C:\Users\Shao.Surface\Documents\Digital\Lab3v6\Lab3.bit
+FAMILY=Spartan3E
+PART=xc3s500e-4fg320
+WORKINGDIR=C:\Users\Shao.Surface\Documents\Digital\Lab3v6
+LICENSE=ISE
+USER_INFO=174152158_1777491269_210598732_964

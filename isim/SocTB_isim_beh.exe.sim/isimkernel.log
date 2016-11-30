@@ -2,27 +2,27 @@ Command line:
    SocTB_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  49680
+     -socket  52400
 
-Fri Jan 08 19:55:42 2016
+Fri Jan 08 11:22:52 2016
 
 
- Elaboration Time: 1.39063 sec
+ Elaboration Time: 1.48438 sec
 
- Current Memory Usage: 1490.95 Meg
+ Current Memory Usage: 1490.88 Meg
 
- Total Signals          : 246
- Total Nets             : 575
- Total Signal Drivers   : 117
+ Total Signals          : 222
+ Total Nets             : 447
+ Total Signal Drivers   : 97
  Total Blocks           : 19
  Total Primitive Blocks : 14
- Total Processes        : 130
+ Total Processes        : 110
  Total Traceable Variables  : 112
- Total Scalar Nets and Variables : 2709
+ Total Scalar Nets and Variables : 2581
 
- Total Simulation Time: 1.59375 sec
+ Total Simulation Time: 1.64063 sec
 
- Current Memory Usage: 1490.95 Meg
+ Current Memory Usage: 1490.85 Meg
 
-Fri Jan 08 19:55:59 2016
+Fri Jan 08 11:23:13 2016
 

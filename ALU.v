@@ -23,8 +23,9 @@ module ALU
 	(input [ALU_WIDTH-1:0] a,b,
 	input [2:0] op,
 	output reg [ALU_WIDTH-1:0] result,
-	output reg Ov
-    );
+	output reg Ov,
+	output Zero
+	);
 	
 	always@(a or b or op)
 		begin
@@ -53,4 +54,6 @@ module ALU
 			endcase
 		end
 		
+	assign Zero = ( result == 0 )? 1:0;
+	
 endmodule

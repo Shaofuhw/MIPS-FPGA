@@ -1,0 +1,18 @@
+
+
+
+// Instantiate the module
+Soc_Mips instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .WriteBack(WriteBack), 
+    .ALUResult(ALUResult), 
+    .PCout(PCout), 
+    .Register1(Register1), 
+    .Register2(Register2), 
+    .Register3(Register3), 
+    .Register4(Register4), 
+    .Status(Status)
+    );
+
+

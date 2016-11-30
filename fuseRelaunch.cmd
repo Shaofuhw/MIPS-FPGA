@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "C:/Users/Shao.Surface/Documents/Digital/Lab3v2/SocTB_isim_beh.exe" -prj "C:/Users/Shao.Surface/Documents/Digital/Lab3v2/SocTB_beh.prj" "work.SocTB" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/SocTB_isim_beh.exe" -prj "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/SocTB_beh.prj" "work.SocTB" "work.glbl" 

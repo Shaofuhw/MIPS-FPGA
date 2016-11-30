@@ -36,7 +36,7 @@ module MEM
 			begin
 				for(i=0;i<(DATA_DEPTH);i=i+1)
 					RegFile[i] <= 0;
-				RegFile[0] <= 1;
+				RegFile[0] <= 3;
 				RegFile[1] <= 2;
 			end
 		else if (MemWrite == 1)

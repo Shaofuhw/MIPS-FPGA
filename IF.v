@@ -22,7 +22,7 @@ module IF
 	#(parameter PC_WIDTH=6,
 	parameter CODE_DIR_WIDTH = 4,
 	parameter CODE_DEPTH = 16)
-	(input clk,rst,Branch,Zero,
+	(input clk,rst,Branch,Zero,PCWrite,
 	input [PC_WIDTH-1:0] jmp_address,
 	output [PC_WIDTH-1:0] PCnext,PCout,
 	output [31:0] Instruction
@@ -33,6 +33,7 @@ module IF
 	PC IF1(
     .clk(clk), 
     .rst(rst), 
+	 .PCWrite(PCWrite),
     .PCin(PCin), 
     .PCout(PCout)
     );

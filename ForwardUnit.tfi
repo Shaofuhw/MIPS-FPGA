@@ -1,0 +1,16 @@
+
+
+
+// Instantiate the module
+ForwardUnit instance_name (
+    .IDEXRegisterRs(IDEXRegisterRs), 
+    .IDEXRegisterRt(IDEXRegisterRt), 
+    .EXMEMRegisterRd(EXMEMRegisterRd), 
+    .MEMWBRegisterRd(MEMWBRegisterRd), 
+    .EXMEMRegWrite(EXMEMRegWrite), 
+    .MEMWBRegWrite(MEMWBRegWrite), 
+    .Forward_A(Forward_A), 
+    .Forward_B(Forward_B)
+    );
+
+

@@ -5,16 +5,16 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="693" delta="unknown" >"C:/Users/Shao.Surface/Documents/Digital/Lab3v2/Soc_Mips.v" Line 54: Parameter declaration becomes local in <arg fmt="%s" index="1">Soc_Mips</arg> with formal parameter declaration list
+<msg type="warning" file="HDLCompiler" num="693" delta="unknown" >"C:/Users/Shao.Surface/Documents/Digital/Lab3v3/Soc_Mips.v" Line 53: Parameter declaration becomes local in <arg fmt="%s" index="1">Soc_Mips</arg> with formal parameter declaration list
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="693" delta="unknown" >"C:/Users/Shao.Surface/Documents/Digital/Lab3v2/Soc_Mips.v" Line 55: Parameter declaration becomes local in <arg fmt="%s" index="1">Soc_Mips</arg> with formal parameter declaration list
+<msg type="warning" file="HDLCompiler" num="693" delta="unknown" >"C:/Users/Shao.Surface/Documents/Digital/Lab3v3/Soc_Mips.v" Line 54: Parameter declaration becomes local in <arg fmt="%s" index="1">Soc_Mips</arg> with formal parameter declaration list
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="693" delta="unknown" >"C:/Users/Shao.Surface/Documents/Digital/Lab3v2/Soc_Mips.v" Line 56: Parameter declaration becomes local in <arg fmt="%s" index="1">Soc_Mips</arg> with formal parameter declaration list
+<msg type="warning" file="HDLCompiler" num="693" delta="unknown" >"C:/Users/Shao.Surface/Documents/Digital/Lab3v3/Soc_Mips.v" Line 55: Parameter declaration becomes local in <arg fmt="%s" index="1">Soc_Mips</arg> with formal parameter declaration list
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="693" delta="unknown" >"C:/Users/Shao.Surface/Documents/Digital/Lab3v2/Soc_Mips.v" Line 57: Parameter declaration becomes local in <arg fmt="%s" index="1">Soc_Mips</arg> with formal parameter declaration list
+<msg type="warning" file="HDLCompiler" num="693" delta="unknown" >"C:/Users/Shao.Surface/Documents/Digital/Lab3v3/Soc_Mips.v" Line 56: Parameter declaration becomes local in <arg fmt="%s" index="1">Soc_Mips</arg> with formal parameter declaration list
 </msg>
 
 </messages>

@@ -22,29 +22,39 @@ module EX
 	#(parameter ALU_WIDTH = 8,
 	parameter EXT_OUT_WIDTH = 8,
 	parameter PC_WIDTH = 6,
-	parameter REG_DIR_WIDTH = 3)
+	parameter REG_DIR_WIDTH = 3,
+	parameter DATA_WIDTH = 8)
 	(input [ALU_WIDTH-1:0] readd1,readd2,
-	input [1:0] ALUop,
+	input [1:0] ALUop, Forward_A, Forward_B,
 	input ALUSrc,RegDst,
 	input [EXT_OUT_WIDTH-1:0] SignExtendOut,
 	input [PC_WIDTH-1:0] PCnext,
 	input [5:0] funct,
 	input [REG_DIR_WIDTH-1:0] RegDst1,RegDst2,
-	output [ALU_WIDTH-1:0] ALUResult,
+	input [DATA_WIDTH-1:0] WBData,Address,
+	output [ALU_WIDTH-1:0] ALUResult,data2,data1,data2_2,
 	output Zero,
 	output [REG_DIR_WIDTH-1:0] WriteReg,
 	output [PC_WIDTH-1:0] ALUR
    );
 
-	wire [ALU_WIDTH-1:0] data2;
+	//wire [ALU_WIDTH-1:0] data1,data2_2;
 	wire [2:0] ALUCtrl;
 	
-	assign data2 = (ALUSrc == 0)? readd2:SignExtendOut;
+	assign data1 = ( Forward_A == 0 )? readd1:
+						( Forward_A == 1 )? WBData:
+						( Forward_A == 2 )? Address: 0;
+						
+	assign data2 = ( Forward_B == 0 )? readd2:
+						( Forward_B == 1 )? WBData:
+						( Forward_B == 2 )? Address: 0;
+						
+	assign data2_2 = (ALUSrc == 0)? data2:SignExtendOut;
 	assign WriteReg = ( RegDst == 1 )?RegDst1:RegDst2; 
 	
 	ALU EX1 (
-    .a(readd1), 
-    .b(data2), 
+    .a(data1), 
+    .b(data2_2), 
     .op(ALUCtrl), 
     .result(ALUResult), 
     .z(Zero), 

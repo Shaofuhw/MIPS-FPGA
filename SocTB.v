@@ -33,16 +33,16 @@ module SocTB;
 	wire MemWrite;
 	wire RegWrite;
 	wire [31:0] Instruction;
-	wire [5:0] PCnext;
-	wire [5:0] ALUR;
 	wire [5:0] PCout;
 	wire [7:0] ALUResult;
 	wire [7:0] Data;
 	wire [7:0] readd1;
 	wire [7:0] readd2;
 	wire [7:0] WriteBack;
-	wire [4:0] readr1;
-	wire [4:0] readr2;
+	wire [2:0] readr1;
+	wire [2:0] readr2;
+	wire [2:0] writer;
+	wire [7:0] ALU1,ALU2;
 
 	// Instantiate the Unit Under Test (UUT)
 	Soc_Mips uut (
@@ -52,8 +52,6 @@ module SocTB;
 		.MemWrite(MemWrite), 
 		.RegWrite(RegWrite), 
 		.Instruction(Instruction), 
-		.PCnext(PCnext), 
-		.ALUR(ALUR), 
 		.PCout(PCout), 
 		.ALUResult(ALUResult), 
 		.Data(Data), 
@@ -61,7 +59,10 @@ module SocTB;
 		.readd2(readd2), 
 		.WriteBack(WriteBack), 
 		.readr1(readr1), 
-		.readr2(readr2)
+		.readr2(readr2),
+		.writer(writer),
+		.ALU1(ALU1),
+		.ALU2(ALU2)
 	);
 
 	initial begin

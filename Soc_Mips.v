@@ -36,20 +36,19 @@ module Soc_Mips
 	(input clk,rst,
 	output MemRead,MemWrite,RegWrite,
 	output [31:0]Instruction,
-	output [PC_WIDTH-1:0]PCnext,
-	output [PC_WIDTH-1:0]ALUR,
 	output [PC_WIDTH-1:0]PCout,
 	output [ALU_WIDTH-1:0]ALUResult,
 	output [DATA_WIDTH-1:0] Data,
-	output [REG_WIDTH-1:0]readd1,readd2,WriteBack,
-	output [4:0] readr1,readr2
+	output [REG_WIDTH-1:0]readd1,readd2,WriteBack,ALU1,ALU2,
+	output [REG_DIR_WIDTH-1:0] readr1,readr2,writer
 );
 	
-	wire Zero,ALUSrc,MemtoReg,Branch;
-	wire [1:0] ALUop;
+	wire [PC_WIDTH-1:0] PCnext,ALUR;
+	wire Zero,ALUSrc,MemtoReg,Branch,PCWrite,IFIDWrite,CControl;
+	wire [1:0] ALUop, Forward_A, Forward_B;
 	wire [REG_DIR_WIDTH-1:0] WriteReg;
 	wire [EXT_OUT_WIDTH-1:0] SignExtendOut;
-
+	wire [ALU_WIDTH-1:0] data2;
 	
 	parameter IFIDsize = 32+PC_WIDTH;
 	parameter IDEXsize = 9+PC_WIDTH+REG_WIDTH+REG_WIDTH+EXT_OUT_WIDTH+REG_DIR_WIDTH+REG_DIR_WIDTH;
@@ -60,10 +59,13 @@ module Soc_Mips
 	reg [IDEXsize-1:0] IDEX;
 	reg [EXMEMsize-1:0] EXMEM;
 	reg [MEMWBsize-1:0] MEMWB;
+	reg [REG_DIR_WIDTH-1:0] IDEXRegisterRs;
+
 
 	IF IF (
     .clk(clk), 
     .rst(rst),
+	 .PCWrite(PCWrite),
 	 .Branch(EXMEM[EXMEMsize-1]),
 	 .Zero(EXMEM[EXMEMsize-PC_WIDTH-6]),
     .jmp_address(EXMEM[EXMEMsize-6:EXMEMsize-5-PC_WIDTH]), 
@@ -72,17 +74,18 @@ module Soc_Mips
 	 .PCout(PCout)
     );
 	 
-	 assign readr1 = Instruction[25:21]; //Para ver qué registros se leen. Simulacion.
-	 assign readr2 = Instruction[20:16];
-	 
 	 always@(posedge clk or posedge rst)
 		if(rst)
 				IFID <= 0;
-		else
+		else if(IFIDWrite == 1)
 			begin
 				IFID[IFIDsize-1:32] <= PCnext;
 				IFID[31:0] <= Instruction;
 			end
+	
+	assign readr1 = IFID[REG_DIR_WIDTH-1+21:21];
+	assign readr2 = IFID[REG_DIR_WIDTH-1+16:16];
+	assign writer = MEMWB[REG_DIR_WIDTH-1:0];
 	
 	ID ID (
     .clk(clk), 
@@ -106,16 +109,23 @@ module Soc_Mips
 	 
 	 always@(posedge rst or posedge clk)
 		if(rst)
-			IDEX <= 0;
+			begin
+				IDEX <= 0;
+				IDEXRegisterRs <= 0;
+			end
 		else
 			begin
-				IDEX[IDEXsize-1:IDEXsize-9] <= {RegDst,ALUop[1:0],ALUSrc,Branch,MemRead,MemWrite,RegWrite,MemtoReg};
+				if(CControl == 1)
+					IDEX[IDEXsize-1:IDEXsize-9] <= {RegDst,ALUop[1:0],ALUSrc,Branch,MemRead,MemWrite,RegWrite,MemtoReg};
+				else if (CControl == 0)
+					IDEX[IDEXsize-1:IDEXsize-9] <= 0;
 				IDEX[IDEXsize-10:IDEXsize-9-PC_WIDTH] <= IFID[IFIDsize-1:32]; //Se pasa el PCnext
 				IDEX[IDEXsize-PC_WIDTH-10:IDEXsize-9-PC_WIDTH-REG_WIDTH] <= readd1; //Dato 1
 				IDEX[IDEXsize-PC_WIDTH-REG_WIDTH-10:IDEXsize-9-PC_WIDTH-REG_WIDTH-REG_WIDTH] <= readd2; //Dato 2 
 				IDEX[IDEXsize-PC_WIDTH-REG_WIDTH-REG_WIDTH-10:IDEXsize-9-PC_WIDTH-REG_WIDTH-REG_WIDTH-EXT_OUT_WIDTH] <= SignExtendOut;
-				IDEX[REG_DIR_WIDTH+REG_DIR_WIDTH-1:REG_DIR_WIDTH] <= IFID[REG_DIR_WIDTH+15:16]; //Instrucciones 20-16
-				IDEX[REG_DIR_WIDTH-1:0] <= IFID[REG_DIR_WIDTH+10:11]; //Instrucciones 15-11
+				IDEX[REG_DIR_WIDTH+REG_DIR_WIDTH-1:REG_DIR_WIDTH] <= IFID[REG_DIR_WIDTH+15:16]; //Instrucciones 20-16  //Rt
+				IDEX[REG_DIR_WIDTH-1:0] <= IFID[REG_DIR_WIDTH+10:11]; //Instrucciones 15-11 //Rd
+				IDEXRegisterRs <= IFID[REG_DIR_WIDTH+20:21];  //Rs
 			end
 		 
 	 EX EX (
@@ -129,10 +139,17 @@ module Soc_Mips
     .funct(IDEX[IDEXsize-4-PC_WIDTH-REG_WIDTH-REG_WIDTH-EXT_OUT_WIDTH:IDEXsize-9-PC_WIDTH-REG_WIDTH-REG_WIDTH-EXT_OUT_WIDTH]),
 	 .RegDst2(IDEX[REG_DIR_WIDTH+REG_DIR_WIDTH-1:REG_DIR_WIDTH]),
 	 .RegDst1(IDEX[REG_DIR_WIDTH-1:0]),
+	 .Forward_A(Forward_A),
+	 .Forward_B(Forward_B),
+	 .WBData(WriteBack),
+	 .Address(EXMEM[EXMEMsize-PC_WIDTH-7:EXMEMsize-PC_WIDTH-6-ALU_WIDTH]),  //El mismo que entra en Address en la memoria de datos
     .ALUResult(ALUResult), //Salida de la ALU
     .Zero(Zero),
 	 .WriteReg(WriteReg),
-	 .ALUR(ALUR)	//Salida de la ALU del PC
+	 .ALUR(ALUR),	//Salida de la ALU del PC
+	 .data2(data2),
+	 .data1(ALU1),
+	 .data2_2(ALU2)
     );
 	 
 	 always@(posedge clk or posedge rst)
@@ -141,11 +158,11 @@ module Soc_Mips
 		else
 			begin
 				EXMEM[EXMEMsize-1:EXMEMsize-5] <= IDEX[IDEXsize-5:IDEXsize-9]; //Branch,MemRead,MemWrite,RegWrite,MemtoReg
-				EXMEM[EXMEMsize-6:EXMEMsize-5-PC_WIDTH] <= ALUR;
+				EXMEM[EXMEMsize-6:EXMEMsize-5-PC_WIDTH] <= ALUR;  //Dirección Salto
 				EXMEM[EXMEMsize-PC_WIDTH-6] <= Zero;
-				EXMEM[EXMEMsize-PC_WIDTH-7:EXMEMsize-PC_WIDTH-6-ALU_WIDTH] <= ALUResult;
-				EXMEM[REG_DIR_WIDTH+REG_WIDTH-1:REG_DIR_WIDTH] <= IDEX[IDEXsize-PC_WIDTH-REG_WIDTH-10:IDEXsize-9-PC_WIDTH-REG_WIDTH-REG_WIDTH]; //Dato 2 del registro
-				EXMEM[REG_DIR_WIDTH-1:0] <= WriteReg;
+				EXMEM[EXMEMsize-PC_WIDTH-7:EXMEMsize-PC_WIDTH-6-ALU_WIDTH] <= ALUResult;  //Resultado ALU
+				EXMEM[REG_DIR_WIDTH+REG_WIDTH-1:REG_DIR_WIDTH] <= data2; //Dato 2 del registro
+				EXMEM[REG_DIR_WIDTH-1:0] <= WriteReg;  //EXMEM.RegisterRd
 			end
 
 	 MEM MEM (
@@ -164,9 +181,9 @@ module Soc_Mips
 		else
 			begin
 				MEMWB[MEMWBsize-1:MEMWBsize-2] <= EXMEM[EXMEMsize-4:EXMEMsize-5]; //RegWrite, MemtoReg
-				MEMWB[MEMWBsize-3:MEMWBsize-2-DATA_WIDTH] <= Data;
+				MEMWB[MEMWBsize-3:MEMWBsize-2-DATA_WIDTH] <= Data;  //Dato de la memoria
 				MEMWB[MEMWBsize-DATA_WIDTH-3:MEMWBsize-2-DATA_WIDTH-ALU_WIDTH] <= EXMEM[EXMEMsize-PC_WIDTH-7:EXMEMsize-PC_WIDTH-6-ALU_WIDTH]; //Address
-				MEMWB[REG_DIR_WIDTH-1:0] <= EXMEM[REG_DIR_WIDTH-1:0];
+				MEMWB[REG_DIR_WIDTH-1:0] <= EXMEM[REG_DIR_WIDTH-1:0];  //MEMWB.RegisterRd
 			end
 
 	WB WB (
@@ -174,6 +191,27 @@ module Soc_Mips
     .ALUr(MEMWB[MEMWBsize-DATA_WIDTH-3:MEMWBsize-2-DATA_WIDTH-ALU_WIDTH]), 
     .ReadD(MEMWB[MEMWBsize-3:MEMWBsize-2-DATA_WIDTH]), 
     .WriteBack(WriteBack)
+    );
+	 
+	 ForwardUnit Forward (
+    .IDEXRegisterRs(IDEXRegisterRs), 
+    .IDEXRegisterRt(IDEX[REG_DIR_WIDTH+REG_DIR_WIDTH-1:REG_DIR_WIDTH]), 
+    .EXMEMRegisterRd(EXMEM[REG_DIR_WIDTH-1:0]), 
+    .MEMWBRegisterRd(MEMWB[REG_DIR_WIDTH-1:0]), 
+    .EXMEMRegWrite(EXMEM[EXMEMsize-4]), 
+    .MEMWBRegWrite(MEMWB[MEMWBsize-1]), 
+    .Forward_A(Forward_A), 
+    .Forward_B(Forward_B)
+    );
+	 
+	 HazardUnit Hazard (
+    .IDEXMemRead(IDEX[IDEXsize-6]), 
+    .IDEXRegisterRt(IDEX[REG_DIR_WIDTH+REG_DIR_WIDTH-1:REG_DIR_WIDTH]), 
+    .IFIDRegisterRs(IFID[REG_DIR_WIDTH+20:21]), 
+    .IFIDRegisterRt(IFID[REG_DIR_WIDTH+15:16]), 
+    .PCWrite(PCWrite), 
+    .IFIDWrite(IFIDWrite), 
+    .CControl(CControl)
     );
 
 endmodule

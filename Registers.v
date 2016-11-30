@@ -40,8 +40,10 @@ module Registers
 		else if ( RegWrite == 1)
 			RegFile [writer] <= writedata;
 			
-	assign readd1 = ( readr1 == 0 )?0:RegFile[readr1];
+	assign readd1 = ( readr1 == 0 )?0:
+						 ( readr1 == writer )? writedata:RegFile[readr1];
 
-	assign readd2 = ( readr2 == 0 )?0:RegFile[readr2];
+	assign readd2 = ( readr2 == 0 )?0:
+						 ( readr2 == writer )? writedata:RegFile[readr2];
 	
 endmodule

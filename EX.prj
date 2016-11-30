@@ -1,3 +1,4 @@
+verilog work "CJump.v"
 verilog work "ALUCtrl.v"
 verilog work "ALU.v"
 verilog work "EX.v"

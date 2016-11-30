@@ -15,13 +15,13 @@
          <ClosedNode>/Soc_Mips C:|Users|Shao.Surface|Documents|Digital|Lab3|Soc_Mips.v/IF - IF</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Soc_Mips (C:/Users/Shao.Surface/Documents/Digital/Lab3v2/Soc_Mips.v)</SelectedItem>
+         <SelectedItem>ID2 - Registers (C:/Users/Shao.Surface/Documents/Digital/Lab3v3/Registers.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >2</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000000fc000000020000000000000000000000000200000064ffffffff000000810000000300000002000000fc0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000124000000020000000000000000000000000200000064ffffffff000000810000000300000002000001240000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>Soc_Mips (C:/Users/Shao.Surface/Documents/Digital/Lab3v2/Soc_Mips.v)</CurrentItem>
+      <CurrentItem>ID2 - Registers (C:/Users/Shao.Surface/Documents/Digital/Lab3v3/Registers.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -33,13 +33,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f8000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <ItemView guiview="File" >
       <ClosedNodes>
@@ -55,12 +55,11 @@
    <ItemView guiview="Library" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
-         <ClosedNode>work</ClosedNode>
       </ClosedNodes>
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000109000000010001000100000000000000000000000064ffffffff000000810000000000000001000001090000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000100000000000000000000000000000000000000f8000000010001000100000000000000000000000064ffffffff000000810000000000000001000000f80000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>work</CurrentItem>
    </ItemView>
@@ -104,16 +103,23 @@
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/IFTb C:|Users|Shao.Surface|Documents|Digital|Lab3v2|IFTb.v</ClosedNode>
+         <ClosedNode>/IFTb C:|Users|Shao.Surface|Documents|Digital|Lab3v3|IFTb.v</ClosedNode>
          <ClosedNode>/IFTb C:|Users|Shao.Surface|Documents|Digital|Lab3|IFTb.v</ClosedNode>
          <ClosedNode>/IFTb C:|Users|Shao.Surface|Documents|Digital|Lab3|IFTb.v/uut - IF</ClosedNode>
          <ClosedNode>/MemTB C:|Users|Shao.Surface|Documents|Digital|Lab3v2|MemTB.v</ClosedNode>
+         <ClosedNode>/MemTB C:|Users|Shao.Surface|Documents|Digital|Lab3v3|MemTB.v</ClosedNode>
          <ClosedNode>/MemTB C:|Users|Shao.Surface|Documents|Digital|Lab3|MemTB.v</ClosedNode>
          <ClosedNode>/PCJumpTB C:|Users|Shao.Surface|Documents|Digital|Lab3v2|PCJumpTB.v</ClosedNode>
+         <ClosedNode>/PCJumpTB C:|Users|Shao.Surface|Documents|Digital|Lab3v3|PCJumpTB.v</ClosedNode>
          <ClosedNode>/PCJumpTB C:|Users|Shao.Surface|Documents|Digital|Lab3|PCJumpTB.v</ClosedNode>
+         <ClosedNode>/SignTB C:|Users|Shao.Surface|Documents|Digital|Lab3v2|SignTB.v</ClosedNode>
+         <ClosedNode>/SignTB C:|Users|Shao.Surface|Documents|Digital|Lab3v3|SignTB.v</ClosedNode>
          <ClosedNode>/SignTB C:|Users|Shao.Surface|Documents|Digital|Lab3|SignTB.v</ClosedNode>
+         <ClosedNode>/SocTB C:|Users|Shao.Surface|Documents|Digital|Lab3v2|SocTB.v</ClosedNode>
          <ClosedNode>/SocTB C:|Users|Shao.Surface|Documents|Digital|Lab3v2|SocTB.v/uut - Soc_Mips/EX - EX</ClosedNode>
          <ClosedNode>/SocTB C:|Users|Shao.Surface|Documents|Digital|Lab3v2|SocTB.v/uut - Soc_Mips/ID - ID</ClosedNode>
          <ClosedNode>/SocTB C:|Users|Shao.Surface|Documents|Digital|Lab3v2|SocTB.v/uut - Soc_Mips/IF - IF</ClosedNode>
+         <ClosedNode>/SocTB C:|Users|Shao.Surface|Documents|Digital|Lab3v3|SocTB.v/uut - Soc_Mips/IF - IF</ClosedNode>
          <ClosedNode>/SocTB C:|Users|Shao.Surface|Documents|Digital|Lab3|SocTB.v/uut - Soc_Mips/EX - EX</ClosedNode>
          <ClosedNode>/SocTB C:|Users|Shao.Surface|Documents|Digital|Lab3|SocTB.v/uut - Soc_Mips/ID - ID</ClosedNode>
          <ClosedNode>/SocTB C:|Users|Shao.Surface|Documents|Digital|Lab3|SocTB.v/uut - Soc_Mips/IF - IF</ClosedNode>
@@ -121,13 +127,13 @@
          <ClosedNode>/Soc_Mips C:|Users|Shao.Surface|Documents|Digital|Lab3|Soc_Mips.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>SocTB (C:/Users/Shao.Surface/Documents/Digital/Lab3v2/SocTB.v)</SelectedItem>
+         <SelectedItem>MEM - MEM (C:/Users/Shao.Surface/Documents/Digital/Lab3v3/MEM.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >8</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000000ed000000020000000000000000000000000200000064ffffffff000000810000000300000002000000ed0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000138000000020000000000000000000000000200000064ffffffff000000810000000300000002000001380000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>SocTB (C:/Users/Shao.Surface/Documents/Digital/Lab3v2/SocTB.v)</CurrentItem>
+      <CurrentItem>MEM - MEM (C:/Users/Shao.Surface/Documents/Digital/Lab3v3/MEM.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -139,7 +145,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f1000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f10000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000126000000010000000100000000000000000000000064ffffffff000000810000000000000001000001260000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem/>
    </ItemView>

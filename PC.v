@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module PC
 	#(parameter PC_WIDTH = 6)
-	(input clk, rst,
+	(input clk, rst,PCWrite,
 	input [PC_WIDTH-1:0] PCin,
 	output reg [PC_WIDTH-1:0] PCout
     );
@@ -28,7 +28,7 @@ module PC
 	always@(posedge clk or posedge rst)
 		if(rst)
 			PCout = 0;
-		else
+		else if(PCWrite == 1)
 			PCout = PCin;
 			
 endmodule

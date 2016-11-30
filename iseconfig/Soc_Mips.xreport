@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2016-01-08T15:04:57</DateModified>
+  <DateModified>2016-01-08T17:06:20</DateModified>
   <ModuleName>Soc_Mips</ModuleName>
-  <SummaryTimeStamp>2015-11-15T19:48:05</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/Shao.Surface/Documents/Digital/Lab3v2/iseconfig/Soc_Mips.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Shao.Surface/Documents/Digital/Lab3v2\</ImplementationReportsDirectory>
-  <DateInitialized>2015-11-15T19:27:55</DateInitialized>
+  <SummaryTimeStamp>2016-01-08T16:59:17</SummaryTimeStamp>
+  <SavedFilePath>C:/Users/Shao.Surface/Documents/Digital/Lab3v3/iseconfig/Soc_Mips.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/Shao.Surface/Documents/Digital/Lab3v3\</ImplementationReportsDirectory>
+  <DateInitialized>2015-11-16T19:16:31</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>

@@ -1,0 +1,15 @@
+
+
+
+// Instantiate the module
+HazardUnit instance_name (
+    .IDEXMemRead(IDEXMemRead), 
+    .IDEXRegisterRt(IDEXRegisterRt), 
+    .IFIDRegisterRs(IFIDRegisterRs), 
+    .IFIDRegisterRt(IFIDRegisterRt), 
+    .PCWrite(PCWrite), 
+    .IFIDWrite(IFIDWrite), 
+    .CControl(CControl)
+    );
+
+

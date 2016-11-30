@@ -1,5 +1,5 @@
 ISim log file
-Running: C:\Users\Shao.Surface\Documents\Digital\Lab3v3\SocTB_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/Shao.Surface/Documents/Digital/Lab3v3/SocTB_isim_beh.wdb 
+Running: C:\Users\Shao.Surface\Documents\Digital\Lab3v4\SocTB_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/Shao.Surface/Documents/Digital/Lab3v4/SocTB_isim_beh.wdb 
 ISim P.20131013 (signature 0x7708f090)
 ----------------------------------------------------------------------
 INFO:Security:50 - The XILINXD_LICENSE_FILE environment variable is set to '2100@digital.unex.es'.

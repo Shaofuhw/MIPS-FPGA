@@ -28,18 +28,14 @@ module EX
 	input [1:0] ALUop, Forward_A, Forward_B,
 	input ALUSrc,RegDst,
 	input [EXT_OUT_WIDTH-1:0] SignExtendOut,
-	input [PC_WIDTH-1:0] PCnext,
 	input [5:0] funct,
 	input [REG_DIR_WIDTH-1:0] RegDst1,RegDst2,
 	input [DATA_WIDTH-1:0] WBData,Address,
-	output [ALU_WIDTH-1:0] ALUResult,data2,data1,data2_2,
-	output Zero,
+	output [ALU_WIDTH-1:0] ALUResult,
 	output [REG_DIR_WIDTH-1:0] WriteReg,
-	output [PC_WIDTH-1:0] ALUR
+	output [ALU_WIDTH-1:0] data1,data2,data2_2,
+	output [2:0] ALUCtrl
    );
-
-	//wire [ALU_WIDTH-1:0] data1,data2_2;
-	wire [2:0] ALUCtrl;
 	
 	assign data1 = ( Forward_A == 0 )? readd1:
 						( Forward_A == 1 )? WBData:
@@ -56,9 +52,7 @@ module EX
     .a(data1), 
     .b(data2_2), 
     .op(ALUCtrl), 
-    .result(ALUResult), 
-    .z(Zero), 
-    .Ov(ov)
+    .result(ALUResult)
     );
 	 
 	 ALUCtrl EX2 (
@@ -66,12 +60,5 @@ module EX
     .funct(funct), 
     .ALUCtrl(ALUCtrl)
     );
-	 
-	 CJump EX3 (
-    .ShiftIn(SignExtendOut), 
-    .PCNext(PCnext), 
-    .ALUR(ALUR)
-    );
-	 
 
 endmodule

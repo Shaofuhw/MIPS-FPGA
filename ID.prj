@@ -1,4 +1,5 @@
 verilog work "UControl.v"
 verilog work "SignExt.v"
 verilog work "Registers.v"
+verilog work "CJump.v"
 verilog work "ID.v"

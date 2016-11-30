@@ -1,29 +1,25 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o C:/Users/Shao.Surface/Documents/Digital/Lab3v3/SocTB_isim_beh.exe -prj C:/Users/Shao.Surface/Documents/Digital/Lab3v3/SocTB_beh.prj work.SocTB work.glbl 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o C:/Users/Shao.Surface/Documents/Digital/Lab3v4/SocTB_isim_beh.exe -prj C:/Users/Shao.Surface/Documents/Digital/Lab3v4/SocTB_beh.prj work.SocTB work.glbl 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/UControl.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/SignExt.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/Registers.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/PC.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/IMemory.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/CJump.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/ALUCtrl.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/ALU.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/WB.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/MEM.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/IF.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/ID.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/HazardUnit.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/ForwardUnit.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/EX.v" into library work
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/Soc_Mips.v" into library work
-WARNING:HDLCompiler:693 - "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/Soc_Mips.v" Line 53: Parameter declaration becomes local in Soc_Mips with formal parameter declaration list
-WARNING:HDLCompiler:693 - "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/Soc_Mips.v" Line 54: Parameter declaration becomes local in Soc_Mips with formal parameter declaration list
-WARNING:HDLCompiler:693 - "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/Soc_Mips.v" Line 55: Parameter declaration becomes local in Soc_Mips with formal parameter declaration list
-WARNING:HDLCompiler:693 - "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/Soc_Mips.v" Line 56: Parameter declaration becomes local in Soc_Mips with formal parameter declaration list
-Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v3/SocTB.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/UControl.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/SignExt.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/Registers.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/PC.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/IMemory.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/CJump.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/ALUCtrl.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/ALU.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/WB.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/MEM.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/IF.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/ID.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/HazardUnit.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/ForwardUnit.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/EX.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/Soc_Mips.v" into library work
+Analyzing Verilog file "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/SocTB.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
@@ -33,21 +29,21 @@ Compiling module IF
 Compiling module UControl
 Compiling module Registers
 Compiling module SignExt
+Compiling module CJump
 Compiling module ID
 Compiling module ALU
 Compiling module ALUCtrl
-Compiling module CJump
 Compiling module EX
 Compiling module MEM
 Compiling module WB
 Compiling module ForwardUnit
 Compiling module HazardUnit
-Compiling module Soc_Mips_default
+Compiling module Soc_Mips
 Compiling module SocTB
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 10 sub-compilation(s) to finish...
+Waiting for 8 sub-compilation(s) to finish...
 Compiled 18 Verilog Units
-Built simulation executable C:/Users/Shao.Surface/Documents/Digital/Lab3v3/SocTB_isim_beh.exe
-Fuse Memory Usage: 27104 KB
-Fuse CPU Usage: 2061 ms
+Built simulation executable C:/Users/Shao.Surface/Documents/Digital/Lab3v4/SocTB_isim_beh.exe
+Fuse Memory Usage: 27760 KB
+Fuse CPU Usage: 1983 ms

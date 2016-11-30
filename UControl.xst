@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/xst"
+elaborate
+-ifn UControl.prj
+-ifmt mixed

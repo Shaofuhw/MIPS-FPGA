@@ -22,9 +22,7 @@ module ALU
 	#(parameter ALU_WIDTH = 8)
 	(input [ALU_WIDTH-1:0] a,b,
 	input [2:0] op,
-	output reg [ALU_WIDTH-1:0] result,
-	output z,
-	output reg Ov
+	output reg [ALU_WIDTH-1:0] result
     );
 	
 	always@(a or b or op)
@@ -32,20 +30,8 @@ module ALU
 			case(op)
 				0: result = a & b;
 				1:	result = a | b;
-				2: begin
-						result = a + b;
-						if ( (a[ALU_WIDTH-1] == b[ALU_WIDTH-1]) && (a[ALU_WIDTH-1] != result[ALU_WIDTH-1]) )
-							Ov = 1;
-						else
-							Ov = 0;
-					end
-				6: begin
-						result = a - b;
-						if ( (a[ALU_WIDTH-1] != b[ALU_WIDTH-1]) && (b[ALU_WIDTH-1] == result[ALU_WIDTH-1]) )
-							Ov = 1;
-						else
-							Ov = 0;
-					end
+				2: result = a + b;
+				6: result = a - b;
 				7: if( a < b )
 					result = 1;
 					else
@@ -54,6 +40,4 @@ module ALU
 			endcase
 		end
 		
-	assign z = ( result == 0 )? 1:0;
-	
 endmodule

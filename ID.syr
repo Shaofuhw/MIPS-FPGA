@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.41 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.41 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Reading design: ID.prj
 
@@ -109,10 +109,8 @@ Compiling verilog file "SignExt.v" in library work
 Module <UControl> compiled
 Compiling verilog file "Registers.v" in library work
 Module <SignExt> compiled
-Compiling verilog file "CJump.v" in library work
-Module <Registers> compiled
 Compiling verilog file "ID.v" in library work
-Module <CJump> compiled
+Module <Registers> compiled
 Module <ID> compiled
 No errors in compilation
 Analysis of file <"ID.prj"> succeeded.
@@ -143,11 +141,6 @@ Analyzing hierarchy for module <SignExt> in library <work> with parameters.
 	EXT_IN_WIDTH = "00000000000000000000000000000110"
 	EXT_OUT_WIDTH = "00000000000000000000000000001000"
 
-Analyzing hierarchy for module <CJump> in library <work> with parameters.
-	PC_WIDTH = "00000000000000000000000000000110"
-	SH_IN_WIDTH = "00000000000000000000000000001000"
-	SH_OUT_WIDTH = "00000000000000000000000000000110"
-
 
 =========================================================================
 *                            HDL Analysis                               *
@@ -171,18 +164,16 @@ Analyzing module <Registers> in library <work>.
 	REG_DIR_WIDTH = 32'sb00000000000000000000000000000011
 	REG_FILE_DEPTH = 32'sb00000000000000000000000000001000
 	REG_WIDTH = 32'sb00000000000000000000000000001000
+WARNING:Xst:905 - "Registers.v" line 44: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <RegFile>
+WARNING:Xst:905 - "Registers.v" line 52: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <RegFile>
 Module <Registers> is correct for synthesis.
  
 Analyzing module <SignExt> in library <work>.
 	EXT_IN_WIDTH = 32'sb00000000000000000000000000000110
 	EXT_OUT_WIDTH = 32'sb00000000000000000000000000001000
 Module <SignExt> is correct for synthesis.
- 
-Analyzing module <CJump> in library <work>.
-	PC_WIDTH = 32'sb00000000000000000000000000000110
-	SH_IN_WIDTH = 32'sb00000000000000000000000000001000
-	SH_OUT_WIDTH = 32'sb00000000000000000000000000000110
-Module <CJump> is correct for synthesis.
  
 
 =========================================================================
@@ -199,14 +190,11 @@ Unit <UControl> synthesized.
 
 Synthesizing Unit <Registers>.
     Related source file is "Registers.v".
-    Found 8-bit 8-to-1 multiplexer for signal <$varindex0000> created at line 43.
-    Found 8-bit 8-to-1 multiplexer for signal <$varindex0001> created at line 46.
-    Found 3-bit comparator equal for signal <readd1$cmp_eq0001> created at line 43.
-    Found 3-bit comparator equal for signal <readd2$cmp_eq0001> created at line 46.
+    Found 8-bit 8-to-1 multiplexer for signal <$varindex0000> created at line 48.
+    Found 8-bit 8-to-1 multiplexer for signal <$varindex0001> created at line 56.
     Found 64-bit register for signal <RegFile>.
     Summary:
 	inferred  64 D-type flip-flop(s).
-	inferred   2 Comparator(s).
 	inferred  16 Multiplexer(s).
 Unit <Registers> synthesized.
 
@@ -216,21 +204,11 @@ Synthesizing Unit <SignExt>.
 Unit <SignExt> synthesized.
 
 
-Synthesizing Unit <CJump>.
-    Related source file is "CJump.v".
-WARNING:Xst:647 - Input <ShiftIn<7:6>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 6-bit adder for signal <ALUR>.
-    Summary:
-	inferred   1 Adder/Subtractor(s).
-Unit <CJump> synthesized.
-
-
 Synthesizing Unit <ID>.
     Related source file is "ID.v".
 WARNING:Xst:647 - Input <Instruction<25:24>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <Instruction<20>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <Instruction<15>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <Instruction<10:6>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <Instruction<20:19>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <Instruction<15:6>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 Unit <ID> synthesized.
 
 
@@ -238,12 +216,8 @@ Unit <ID> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 1
- 6-bit adder                                           : 1
 # Registers                                            : 8
  8-bit register                                        : 8
-# Comparators                                          : 2
- 3-bit comparator equal                                : 2
 # Multiplexers                                         : 2
  8-bit 8-to-1 multiplexer                              : 2
 
@@ -258,12 +232,8 @@ Macro Statistics
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 1
- 6-bit adder                                           : 1
 # Registers                                            : 64
  Flip-Flops                                            : 64
-# Comparators                                          : 2
- 3-bit comparator equal                                : 2
 # Multiplexers                                         : 16
  1-bit 8-to-1 multiplexer                              : 16
 
@@ -314,23 +284,23 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 86
+# IOs                              : 79
 
 Cell Usage :
-# BELS                             : 165
+# BELS                             : 146
 #      GND                         : 1
-#      LUT2                        : 2
-#      LUT3                        : 72
-#      LUT4                        : 40
+#      LUT2                        : 4
+#      LUT3                        : 64
+#      LUT4                        : 27
 #      MUXF5                       : 34
 #      MUXF6                       : 16
 # FlipFlops/Latches                : 64
 #      FDCE                        : 64
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 74
-#      IBUF                        : 37
-#      OBUF                        : 37
+# IO Buffers                       : 64
+#      IBUF                        : 31
+#      OBUF                        : 33
 =========================================================================
 
 Device utilization summary:
@@ -340,9 +310,9 @@ Selected Device : 3s500efg320-4
 
  Number of Slices:                       73  out of   4656     1%  
  Number of Slice Flip Flops:             64  out of   9312     0%  
- Number of 4 input LUTs:                114  out of   9312     1%  
- Number of IOs:                          86
- Number of bonded IOBs:                  75  out of    232    32%  
+ Number of 4 input LUTs:                 95  out of   9312     1%  
+ Number of IOs:                          79
+ Number of bonded IOBs:                  65  out of    232    28%  
  Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
@@ -382,9 +352,9 @@ Timing Summary:
 Speed Grade: -4
 
    Minimum period: No path found
-   Minimum input arrival time before clock: 8.377ns
-   Maximum output required time after clock: 7.514ns
-   Maximum combinational path delay: 14.878ns
+   Minimum input arrival time before clock: 4.166ns
+   Maximum output required time after clock: 7.654ns
+   Maximum combinational path delay: 9.195ns
 
 Timing Detail:
 --------------
@@ -392,32 +362,29 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 2368 / 128
+  Total number of paths / destination ports: 320 / 128
 -------------------------------------------------------------------------
-Offset:              8.377ns (Levels of Logic = 5)
-  Source:            Instruction<28> (PAD)
-  Destination:       ID2/RegFile_3_7 (FF)
+Offset:              4.166ns (Levels of Logic = 2)
+  Source:            RegWriteBack (PAD)
+  Destination:       ID2/RegFile_6_7 (FF)
   Destination Clock: clk rising
 
-  Data Path: Instruction<28> to ID2/RegFile_3_7
+  Data Path: RegWriteBack to ID2/RegFile_6_7
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             3   1.218   0.706  Instruction_28_IBUF (Instruction_28_IBUF)
-     LUT3:I0->O            1   0.704   0.424  ID1/Rtype_cmp_eq0000_SW0 (N6)
-     LUT4:I3->O            6   0.704   0.844  ID1/Rtype_cmp_eq0000 (ALUop_1_OBUF)
-     LUT3:I0->O           10   0.704   1.057  WriteReg<0>1 (WriteReg<0>)
-     LUT4:I0->O            8   0.704   0.757  ID2/RegFile_5_not00011 (ID2/RegFile_5_not0001)
-     FDCE:CE                   0.555          ID2/RegFile_5_0
+     IBUF:I->O             8   1.218   0.932  RegWriteBack_IBUF (RegWriteBack_IBUF)
+     LUT4:I0->O            8   0.704   0.757  ID2/RegFile_7_not00011 (ID2/RegFile_7_not0001)
+     FDCE:CE                   0.555          ID2/RegFile_7_0
     ----------------------------------------
-    Total                      8.377ns (4.589ns logic, 3.788ns route)
-                                       (54.8% logic, 45.2% route)
+    Total                      4.166ns (2.477ns logic, 1.689ns route)
+                                       (59.5% logic, 40.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
   Total number of paths / destination ports: 128 / 16
 -------------------------------------------------------------------------
-Offset:              7.514ns (Levels of Logic = 5)
+Offset:              7.654ns (Levels of Logic = 5)
   Source:            ID2/RegFile_0_7 (FF)
   Destination:       readd1<7> (PAD)
   Source Clock:      clk rising
@@ -429,47 +396,44 @@ Offset:              7.514ns (Levels of Logic = 5)
      FDCE:C->Q             2   0.591   0.526  ID2/RegFile_0_7 (ID2/RegFile_0_7)
      LUT3:I1->O            1   0.704   0.000  ID2/mux7_6 (ID2/mux7_6)
      MUXF5:I0->O           1   0.321   0.000  ID2/mux7_4_f5 (ID2/mux7_4_f5)
-     MUXF6:I0->O           1   0.521   0.455  ID2/mux7_2_f6 (ID2/_varindex0000<7>)
-     LUT4:I2->O            1   0.704   0.420  ID2/readd1<7>1 (readd1_7_OBUF)
-     OBUF:I->O                 3.272          readd1_7_OBUF (readd1<7>)
-    ----------------------------------------
-    Total                      7.514ns (6.113ns logic, 1.401ns route)
-                                       (81.4% logic, 18.6% route)
-
-=========================================================================
-Timing constraint: Default path analysis
-  Total number of paths / destination ports: 1178 / 37
--------------------------------------------------------------------------
-Delay:               14.878ns (Levels of Logic = 9)
-  Source:            Instruction<28> (PAD)
-  Destination:       readd1<7> (PAD)
-
-  Data Path: Instruction<28> to readd1<7>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             3   1.218   0.706  Instruction_28_IBUF (Instruction_28_IBUF)
-     LUT3:I0->O            1   0.704   0.424  ID1/Rtype_cmp_eq0000_SW0 (N6)
-     LUT4:I3->O            6   0.704   0.844  ID1/Rtype_cmp_eq0000 (ALUop_1_OBUF)
-     LUT3:I0->O           10   0.704   1.057  WriteReg<0>1 (WriteReg<0>)
-     LUT4:I0->O            1   0.704   0.455  ID2/readd1_cmp_eq00013_SW0 (N10)
-     LUT3:I2->O            2   0.704   0.622  ID2/readd1_cmp_eq00013 (ID2/readd1_cmp_eq0001)
-     LUT4:I0->O            8   0.704   0.932  ID2/readd1<0>11 (ID2/N11)
+     MUXF6:I0->O           1   0.521   0.595  ID2/mux7_2_f6 (ID2/_varindex0000<7>)
      LUT4:I0->O            1   0.704   0.420  ID2/readd1<7>1 (readd1_7_OBUF)
      OBUF:I->O                 3.272          readd1_7_OBUF (readd1<7>)
     ----------------------------------------
-    Total                     14.878ns (9.418ns logic, 5.460ns route)
-                                       (63.3% logic, 36.7% route)
+    Total                      7.654ns (6.113ns logic, 1.541ns route)
+                                       (79.9% logic, 20.1% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 227 / 33
+-------------------------------------------------------------------------
+Delay:               9.195ns (Levels of Logic = 6)
+  Source:            Instruction<21> (PAD)
+  Destination:       readd1<7> (PAD)
+
+  Data Path: Instruction<21> to readd1<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            40   1.218   1.440  Instruction_21_IBUF (Instruction_21_IBUF)
+     LUT3:I0->O            1   0.704   0.000  ID2/mux_4 (ID2/mux_4)
+     MUXF5:I1->O           1   0.321   0.000  ID2/mux_3_f5 (ID2/mux_3_f5)
+     MUXF6:I1->O           1   0.521   0.595  ID2/mux_2_f6 (ID2/_varindex0000<0>)
+     LUT4:I0->O            1   0.704   0.420  ID2/readd1<0>1 (readd1_0_OBUF)
+     OBUF:I->O                 3.272          readd1_0_OBUF (readd1<0>)
+    ----------------------------------------
+    Total                      9.195ns (6.740ns logic, 2.455ns route)
+                                       (73.3% logic, 26.7% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 20.00 secs
-Total CPU time to Xst completion: 19.31 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 5.14 secs
  
 --> 
 
-Total memory usage is 301620 kilobytes
+Total memory usage is 301604 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    5 (   0 filtered)

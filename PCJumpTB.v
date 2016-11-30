@@ -26,9 +26,8 @@ module PCJumpTB;
 
 	// Inputs
 	reg [7:0] ShiftIn;
-	reg [5:0] PCNext;
-	reg Branch,Zero;
-	
+	reg [7:0] PCNext;
+
 	// Outputs
 	wire [5:0] PCJout;
 
@@ -36,8 +35,6 @@ module PCJumpTB;
 	CJump uut (
 		.ShiftIn(ShiftIn), 
 		.PCNext(PCNext), 
-		.Branch(Branch),
-		.Zero(Zero),
 		.PCJout(PCJout)
 	);
 
@@ -47,11 +44,9 @@ module PCJumpTB;
 		PCNext = 0;
 
 		// Wait 100 ns for global reset to finish
-		#50;
-		ShiftIn = 9;
-		PCNext = 16;
-		Branch = 1;
-		Zero = 1;
+		#100;
+		ShiftIn = 2;
+		PCNext = 4;
         
 		// Add stimulus here
 

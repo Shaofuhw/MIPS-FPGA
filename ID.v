@@ -28,19 +28,16 @@ module ID
 	parameter SH_OUT_WIDTH = 6,
 	parameter DATA_WIDTH = 8,
 	parameter PC_WIDTH = 6)
-	(input clk,rst,Zero,
+	(input clk,rst,RegWriteBack,
 	input [DATA_WIDTH-1:0] WriteBack,
 	input [31:0] Instruction,
-	input [PC_WIDTH-1:0] PCnext,
+	input [REG_DIR_WIDTH-1:0] WriteReg,
 	output [REG_WIDTH-1:0] readd1,readd2,
-	output ALUSrc,MemtoReg,MemWrite,MemRead,RegWrite,Branch,
+	output ALUSrc,MemtoReg,MemWrite,MemRead,RegWrite,Branch,RegDst,
 	output [1:0] ALUop,
-	output [SH_OUT_WIDTH-1:0] PCJout,
 	output [EXT_OUT_WIDTH-1:0] SignExtendOut
 	);
 	
-	wire [REG_DIR_WIDTH-1:0] WriteReg;
-	 
 	 UControl ID1 (
     .op(Instruction[31:26]), 
     .RegWrite(RegWrite), 
@@ -60,7 +57,7 @@ module ID
     .writedata(WriteBack), 
     .clk(clk), 
     .rst(rst), 
-    .RegWrite(RegWrite), 
+    .RegWrite(RegWriteBack), 
     .readd1(readd1), 
     .readd2(readd2)
     );
@@ -70,14 +67,4 @@ module ID
     .Out(SignExtendOut)
     );
 	 
-	CJump ID4 (
-    .ShiftIn(SignExtendOut), 
-    .PCNext(PCnext), 
-    .Branch(Branch), 
-    .Zero(Zero), 
-    .PCJout(PCJout)
-    );
-	 
-	 assign WriteReg = (RegDst == 1)? Instruction[REG_DIR_WIDTH+11:11]:Instruction[REG_DIR_WIDTH+16:16];
-
 endmodule

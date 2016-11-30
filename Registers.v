@@ -43,6 +43,5 @@ module Registers
 	assign readd1 = ( readr1 == 0 )?0:RegFile[readr1];
 
 	assign readd2 = ( readr2 == 0 )?0:RegFile[readr2];
-
 	
 endmodule

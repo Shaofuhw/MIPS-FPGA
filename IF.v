@@ -22,20 +22,23 @@ module IF
 	#(parameter PC_WIDTH=6,
 	parameter CODE_DIR_WIDTH = 4,
 	parameter CODE_DEPTH = 16)
-	(input clk,rst,
+	(input clk,rst,Branch,Zero,
 	input [PC_WIDTH-1:0] jmp_address,
 	output [PC_WIDTH-1:0] PCnext,PCout,
 	output [31:0] Instruction
     );
-	 	 
+	 
+	wire [PC_WIDTH-1:0] PCin;
+		 	 
 	PC IF1(
     .clk(clk), 
     .rst(rst), 
-    .PCin(jmp_address), 
+    .PCin(PCin), 
     .PCout(PCout)
     );
 	 
 	assign PCnext = PCout + 4;
+	assign PCin = ( Branch == 1 && Zero == 1 )? jmp_address:PCnext;
 		
 	IMemory IF2 (
     .Address(PCout), 

@@ -21,11 +21,10 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/Shao.Surface/Documents/Digital/Lab3v1/MEM.v";
+static const char *ng0 = "C:/Users/Shao.Surface/Documents/Digital/Lab3v2/MEM.v";
 static int ng1[] = {0, 0};
 static int ng2[] = {1, 0};
 static int ng3[] = {2, 0};
-static int ng4[] = {3, 0};
 
 
 
@@ -180,7 +179,7 @@ LAB9:    t2 = (t0 + 2976);
         goto LAB10;
 
 LAB11:    xsi_set_current_line(39, ng0);
-    t2 = ((char*)((ng3)));
+    t2 = ((char*)((ng2)));
     t3 = (t0 + 2816);
     t4 = (t0 + 2816);
     t5 = (t4 + 72U);
@@ -201,7 +200,7 @@ LAB11:    xsi_set_current_line(39, ng0);
         goto LAB14;
 
 LAB15:    xsi_set_current_line(40, ng0);
-    t2 = ((char*)((ng4)));
+    t2 = ((char*)((ng3)));
     t3 = (t0 + 2816);
     t4 = (t0 + 2816);
     t5 = (t4 + 72U);

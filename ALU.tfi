@@ -8,7 +8,7 @@ ALU instance_name (
     .op(op), 
     .result(result), 
     .z(z), 
-    .Ov(Ov)
+    .ov(ov)
     );
 
 

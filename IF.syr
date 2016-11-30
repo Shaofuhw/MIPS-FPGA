@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.41 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.41 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Reading design: IF.prj
 
@@ -125,9 +125,6 @@ Analyzing hierarchy for module <IF> in library <work> with parameters.
 Analyzing hierarchy for module <PC> in library <work> with parameters.
 	PC_WIDTH = "00000000000000000000000000000110"
 
-Analyzing hierarchy for module <IMemory> in library <work> with parameters.
-	PC_WIDTH = "00000000000000000000000000000110"
-
 
 =========================================================================
 *                            HDL Analysis                               *
@@ -136,15 +133,15 @@ Analyzing top module <IF>.
 	CODE_DEPTH = 32'sb00000000000000000000000000010000
 	CODE_DIR_WIDTH = 32'sb00000000000000000000000000000100
 	PC_WIDTH = 32'sb00000000000000000000000000000110
+WARNING:Xst:2211 - "IMemory.v" line 42: Instantiating black box module <IMemory>.
 Module <IF> is correct for synthesis.
  
+    Set user-defined property "CODE_DEPTH =  00000010" for instance <MemoriaInstrucciones> in unit <IF>.
+    Set user-defined property "CODE_DIR_WIDTH =  00000004" for instance <MemoriaInstrucciones> in unit <IF>.
+    Set user-defined property "PC_WIDTH =  00000006" for instance <MemoriaInstrucciones> in unit <IF>.
 Analyzing module <PC> in library <work>.
 	PC_WIDTH = 32'sb00000000000000000000000000000110
 Module <PC> is correct for synthesis.
- 
-Analyzing module <IMemory> in library <work>.
-	PC_WIDTH = 32'sb00000000000000000000000000000110
-Module <IMemory> is correct for synthesis.
  
 
 =========================================================================
@@ -155,23 +152,16 @@ Performing bidirectional port resolution...
 
 Synthesizing Unit <PC>.
     Related source file is "PC.v".
-    Found 6-bit register for signal <PCout>.
+    Found 6-bit register for signal <PCouti>.
     Summary:
 	inferred   6 D-type flip-flop(s).
 Unit <PC> synthesized.
 
 
-Synthesizing Unit <IMemory>.
-    Related source file is "IMemory.v".
-    Found 16x32-bit ROM for signal <Instruction$mux0000>.
-    Summary:
-	inferred   1 ROM(s).
-Unit <IMemory> synthesized.
-
-
 Synthesizing Unit <IF>.
     Related source file is "IF.v".
-    Found 6-bit adder for signal <PCnext>.
+WARNING:Xst:646 - Signal <Instruction> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 3-bit adder for signal <PCnext$add0000> created at line 39.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 Unit <IF> synthesized.
@@ -181,10 +171,8 @@ Unit <IF> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# ROMs                                                 : 1
- 16x32-bit ROM                                         : 1
 # Adders/Subtractors                                   : 1
- 6-bit adder                                           : 1
+ 3-bit adder                                           : 1
 # Registers                                            : 1
  6-bit register                                        : 1
 
@@ -194,15 +182,18 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+WARNING:Xst:2677 - Node <PCouti_1> of sequential type is unconnected in block <PC>.
+WARNING:Xst:2677 - Node <PCouti_2> of sequential type is unconnected in block <PC>.
+WARNING:Xst:2677 - Node <PCouti_3> of sequential type is unconnected in block <PC>.
+WARNING:Xst:2677 - Node <PCouti_4> of sequential type is unconnected in block <PC>.
+WARNING:Xst:2677 - Node <PCouti_5> of sequential type is unconnected in block <PC>.
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# ROMs                                                 : 1
- 16x32-bit ROM                                         : 1
 # Adders/Subtractors                                   : 1
- 6-bit adder                                           : 1
+ 3-bit adder                                           : 1
 # Registers                                            : 6
  Flip-Flops                                            : 6
 
@@ -211,18 +202,18 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+WARNING:Xst:2677 - Node <PC/PCouti_5> of sequential type is unconnected in block <IF>.
+WARNING:Xst:2677 - Node <PC/PCouti_4> of sequential type is unconnected in block <IF>.
+WARNING:Xst:2677 - Node <PC/PCouti_3> of sequential type is unconnected in block <IF>.
+WARNING:Xst:2677 - Node <PC/PCouti_2> of sequential type is unconnected in block <IF>.
+WARNING:Xst:2677 - Node <PC/PCouti_1> of sequential type is unconnected in block <IF>.
 
 Optimizing unit <IF> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block IF, actual ratio is 0.
-FlipFlop IF1/PCout_5 has been replicated 1 time(s) to handle iob=true attribute.
-FlipFlop IF1/PCout_4 has been replicated 1 time(s) to handle iob=true attribute.
-FlipFlop IF1/PCout_3 has been replicated 1 time(s) to handle iob=true attribute.
-FlipFlop IF1/PCout_2 has been replicated 1 time(s) to handle iob=true attribute.
-FlipFlop IF1/PCout_1 has been replicated 2 time(s) to handle iob=true attribute.
-FlipFlop IF1/PCout_0 has been replicated 2 time(s) to handle iob=true attribute.
+FlipFlop PC/PCouti_0 has been replicated 1 time(s) to handle iob=true attribute.
 
 Final Macro Processing ...
 
@@ -230,8 +221,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 14
- Flip-Flops                                            : 14
+# Registers                                            : 2
+ Flip-Flops                                            : 2
 
 =========================================================================
 
@@ -257,23 +248,21 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 52
+# IOs                              : 15
 
 Cell Usage :
-# BELS                             : 34
+# BELS                             : 2
 #      GND                         : 1
-#      INV                         : 1
-#      LUT2                        : 3
-#      LUT3                        : 13
-#      LUT4                        : 15
-#      MUXF5                       : 1
-# FlipFlops/Latches                : 14
-#      FDC                         : 14
+#      VCC                         : 1
+# FlipFlops/Latches                : 2
+#      FDCE                        : 2
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 51
-#      IBUF                        : 7
-#      OBUF                        : 44
+# IO Buffers                       : 9
+#      IBUF                        : 3
+#      OBUF                        : 6
+# Others                           : 1
+#      IMemory                     : 1
 =========================================================================
 
 Device utilization summary:
@@ -281,11 +270,10 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                       18  out of   4656     0%  
- Number of 4 input LUTs:                 32  out of   9312     0%  
- Number of IOs:                          52
- Number of bonded IOBs:                  52  out of    232    22%  
-    IOB Flip Flops:                      14
+ Number of Slices:                        0  out of   4656     0%  
+ Number of IOs:                          15
+ Number of bonded IOBs:                  10  out of    232     4%  
+    IOB Flip Flops:                       2
  Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
@@ -309,7 +297,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 14    |
+clk                                | BUFGP                  | 2     |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -317,7 +305,7 @@ Asynchronous Control Signals Information:
 -----------------------------------+------------------------+-------+
 Control Signal                     | Buffer(FF name)        | Load  |
 -----------------------------------+------------------------+-------+
-rst                                | IBUF                   | 14    |
+rst                                | IBUF                   | 2     |
 -----------------------------------+------------------------+-------+
 
 Timing Summary:
@@ -325,8 +313,8 @@ Timing Summary:
 Speed Grade: -4
 
    Minimum period: No path found
-   Minimum input arrival time before clock: 2.057ns
-   Maximum output required time after clock: 7.693ns
+   Minimum input arrival time before clock: 2.220ns
+   Maximum output required time after clock: 4.283ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -335,55 +323,56 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 14 / 14
+  Total number of paths / destination ports: 4 / 4
 -------------------------------------------------------------------------
-Offset:              2.057ns (Levels of Logic = 1)
-  Source:            jmp_address<1> (PAD)
-  Destination:       IF1/PCout_1 (FF)
+Offset:              2.220ns (Levels of Logic = 1)
+  Source:            jmp (PAD)
+  Destination:       PC/PCouti_0 (FF)
   Destination Clock: clk rising
 
-  Data Path: jmp_address<1> to IF1/PCout_1
+  Data Path: jmp to PC/PCouti_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             3   1.218   0.531  jmp_address_1_IBUF (jmp_address_1_IBUF)
-     FDC:D                     0.308          IF1/PCout_1
+     IBUF:I->O             2   1.218   0.447  jmp_IBUF (jmp_IBUF)
+     FDCE:CE                   0.555          PC/PCouti_0
     ----------------------------------------
-    Total                      2.057ns (1.526ns logic, 0.531ns route)
-                                       (74.2% logic, 25.8% route)
+    Total                      2.220ns (1.773ns logic, 0.447ns route)
+                                       (79.9% logic, 20.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 145 / 32
+  Total number of paths / destination ports: 2 / 2
 -------------------------------------------------------------------------
-Offset:              7.693ns (Levels of Logic = 3)
-  Source:            IF1/PCout_3 (FF)
-  Destination:       Instruction<22> (PAD)
+Offset:              4.283ns (Levels of Logic = 1)
+  Source:            PC/PCouti_0_1 (FF)
+  Destination:       PCnext<0> (PAD)
   Source Clock:      clk rising
 
-  Data Path: IF1/PCout_3 to Instruction<22>
+  Data Path: PC/PCouti_0_1 to PCnext<0>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q             13   0.591   1.158  IF1/PCout_3 (IF1/PCout_3)
-     LUT4:I0->O            6   0.704   0.844  IF2/Instruction<1>11 (N8)
-     LUT3:I0->O            1   0.704   0.420  IF2/Instruction<3>1 (Instruction_3_OBUF)
-     OBUF:I->O                 3.272          Instruction_3_OBUF (Instruction<3>)
+     FDCE:C->Q             1   0.591   0.420  PC/PCouti_0_1 (PC/PCouti_0_1)
+     OBUF:I->O                 3.272          PCnext_0_OBUF (PCnext<0>)
     ----------------------------------------
-    Total                      7.693ns (5.271ns logic, 2.422ns route)
-                                       (68.5% logic, 31.5% route)
+    Total                      4.283ns (3.863ns logic, 0.420ns route)
+                                       (90.2% logic, 9.8% route)
 
 =========================================================================
+WARNING:Xst:616 - Invalid property "PC_WIDTH 00000006": Did not attach to MemoriaInstrucciones.
+WARNING:Xst:616 - Invalid property "CODE_DEPTH 00000010": Did not attach to MemoriaInstrucciones.
+WARNING:Xst:616 - Invalid property "CODE_DIR_WIDTH 00000004": Did not attach to MemoriaInstrucciones.
 
 
-Total REAL time to Xst completion: 18.00 secs
-Total CPU time to Xst completion: 17.56 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.66 secs
  
 --> 
 
-Total memory usage is 285440 kilobytes
+Total memory usage is 285492 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    0 (   0 filtered)
+Number of warnings :   18 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

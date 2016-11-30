@@ -24,15 +24,12 @@ module CJump
 	parameter PC_WIDTH = 6)
 	(input [SH_IN_WIDTH-1:0] ShiftIn,
 	input [PC_WIDTH-1:0] PCNext,
-	input Branch,Zero,
-	output [SH_OUT_WIDTH-1:0] PCJout
+	output [SH_OUT_WIDTH-1:0] ALUR
     );
 
 	wire [SH_OUT_WIDTH-1:0] ShiftOut;
-	wire [SH_OUT_WIDTH-1:0] ALUR;
 	
 	assign ShiftOut = ShiftIn << 2;
 	assign ALUR = ShiftOut + PCNext;
-	assign PCJout = ( Branch == 1 && Zero == 1 )? ALUR:PCNext;
 
 endmodule

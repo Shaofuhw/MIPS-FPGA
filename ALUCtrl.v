@@ -29,7 +29,7 @@ module ALUCtrl(
 			case(ALUop)
 				0: ALUCtrl = 3'b010;
 				1: ALUCtrl = 3'b110;
-				2: case(funct)
+				2: case(funct)					//Operaciones Tipo R
 					32: ALUCtrl = 3'b010;
 					34: ALUCtrl = 3'b110;
 					36: ALUCtrl = 3'b000;

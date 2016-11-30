@@ -25,6 +25,8 @@ module HazardUnit
 	output PCWrite,IFIDWrite,CControl
     );
 
+	//Control de Detenciones (Bubbles) en los casos en los que no sea posible anticipar
+
 	assign PCWrite = ( (IDEXMemRead == 1) && ( (IDEXRegisterRt == IFIDRegisterRs) || (IDEXRegisterRt == IFIDRegisterRt) ) )? 0:1;
 	assign IFIDWrite = ( (IDEXMemRead == 1) && ( (IDEXRegisterRt == IFIDRegisterRs) || (IDEXRegisterRt == IFIDRegisterRt) ) )? 0:1;
 	assign CControl = ( (IDEXMemRead == 1) && ( (IDEXRegisterRt == IFIDRegisterRs) || (IDEXRegisterRt == IFIDRegisterRt) ) )? 0:1;

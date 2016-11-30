@@ -24,6 +24,6 @@ module SignExt
 	(input [EXT_IN_WIDTH-1:0] In,
 	output [EXT_OUT_WIDTH-1:0] Out);
 		
-	assign Out = {{(EXT_OUT_WIDTH-EXT_IN_WIDTH){In[EXT_IN_WIDTH-1]}},In};
+	assign Out = {{(EXT_OUT_WIDTH-EXT_IN_WIDTH){In[EXT_IN_WIDTH-1]}},In};		//Extiende el valor de entrada
 
 endmodule

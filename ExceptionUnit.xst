@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/xst"
+elaborate
+-ifn ExceptionUnit.prj
+-ifmt mixed

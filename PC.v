@@ -28,7 +28,7 @@ module PC
 	always@(posedge clk or posedge rst)
 		if(rst)
 			PCout = 0;
-		else if(PCWrite == 1)
+		else if(PCWrite == 1)		//En caso de Excepción o de una burbuja, no escribe
 			PCout = PCin;
 			
 endmodule

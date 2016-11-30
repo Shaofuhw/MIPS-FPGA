@@ -1,0 +1,19 @@
+
+
+
+// Instantiate the module
+ExceptionUnit Exceptions (
+    .Ov(Ov), 
+    .RegisterRs(RegisterRs), 
+    .RegisterRt(RegisterRt), 
+    .RegisterRd(RegisterRd), 
+    .OPCode(OPCode), 
+    .Function(Function), 
+    .IFID_PC(IFID_PC), 
+    .IDEX_PC(IDEX_PC), 
+    .ExceptionCause(ExceptionCause), 
+    .ExceptionPC(ExceptionPC), 
+    .Exception(Exception)
+    );
+
+

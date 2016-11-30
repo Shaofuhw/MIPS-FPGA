@@ -21,13 +21,13 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/Shao.Surface/Documents/Digital/Lab3v4/HazardUnit.v";
+static const char *ng0 = "C:/Users/Shao.Surface/Documents/Digital/Lab3v5/HazardUnit.v";
 static int ng1[] = {1, 0};
 static int ng2[] = {0, 0};
 
 
 
-static void Cont_28_0(char *t0)
+static void Cont_30_0(char *t0)
 {
     char t3[8];
     char t4[8];
@@ -226,7 +226,7 @@ LAB0:    t1 = (t0 + 3304U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(28, ng0);
+LAB2:    xsi_set_current_line(30, ng0);
     t2 = (t0 + 1664U);
     t5 = *((char **)t2);
     t2 = ((char*)((ng1)));
@@ -591,7 +591,7 @@ LAB54:    memcpy(t3, t170, 8);
 
 }
 
-static void Cont_29_1(char *t0)
+static void Cont_31_1(char *t0)
 {
     char t3[8];
     char t4[8];
@@ -790,7 +790,7 @@ LAB0:    t1 = (t0 + 3552U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(29, ng0);
+LAB2:    xsi_set_current_line(31, ng0);
     t2 = (t0 + 1664U);
     t5 = *((char **)t2);
     t2 = ((char*)((ng1)));
@@ -1155,7 +1155,7 @@ LAB54:    memcpy(t3, t170, 8);
 
 }
 
-static void Cont_30_2(char *t0)
+static void Cont_32_2(char *t0)
 {
     char t3[8];
     char t4[8];
@@ -1354,7 +1354,7 @@ LAB0:    t1 = (t0 + 3800U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(30, ng0);
+LAB2:    xsi_set_current_line(32, ng0);
     t2 = (t0 + 1664U);
     t5 = *((char **)t2);
     t2 = ((char*)((ng1)));
@@ -1722,7 +1722,7 @@ LAB54:    memcpy(t3, t170, 8);
 
 extern void work_m_00000000002226688333_3063122245_init()
 {
-	static char *pe[] = {(void *)Cont_28_0,(void *)Cont_29_1,(void *)Cont_30_2};
+	static char *pe[] = {(void *)Cont_30_0,(void *)Cont_31_1,(void *)Cont_32_2};
 	xsi_register_didat("work_m_00000000002226688333_3063122245", "isim/SocTB_isim_beh.exe.sim/work/m_00000000002226688333_3063122245.didat");
 	xsi_register_executes(pe);
 }

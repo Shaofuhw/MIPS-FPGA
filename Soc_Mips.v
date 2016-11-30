@@ -32,20 +32,26 @@ module Soc_Mips
 	parameter DATA_WIDTH = 8,
 	parameter DATA_DEPTH = 4,
 	parameter DATA_DIR_WIDTH = 8,
-	parameter ALU_WIDTH = 8)
+	parameter ALU_WIDTH = 8,
+	parameter EXCEPTION_JMP = 6'b111111)
 	(input clk,rst,
 	output [PC_WIDTH-1:0]PCout,
 	output [REG_WIDTH-1:0]WriteBack,
 	output [REG_DIR_WIDTH-1:0]readr1,readr2,
 	output [ALU_WIDTH-1:0] Alu1,Alu2,ALUResult,
 	output [2:0] ALUOp2,
-	output [REG_WIDTH-1:0]readd1,readd2,reg1,reg2,
+	output [REG_WIDTH-1:0]readd1,readd2,reg1,reg2,Register1,Register2,Register3,Register4,
 	output [1:0] Forward_A, Forward_B,
+	output Overflow,
+	output [2:0] ExceptionCause,
+	output [PC_WIDTH-1:0] ExceptionPC,
 	
 	output reg [31:0] 			 		IFID_Instruction,
 	output reg [PC_WIDTH-1:0] 			IFID_PCNext,
+	output reg [PC_WIDTH-1:0]			IFID_PC,
 	
 	output reg [7:0] 						IDEX_ControlSignals,
+	output reg [PC_WIDTH-1:0]			IDEX_PC,
 	output reg [REG_WIDTH-1:0]	   	IDEX_ReadData1,
 	output reg [REG_WIDTH-1:0] 	 	IDEX_ReadData2,
 	output reg [EXT_OUT_WIDTH-1:0] 	IDEX_SignExtend,
@@ -68,7 +74,7 @@ module Soc_Mips
 	wire [ALU_WIDTH-1:0]data2;
 	wire [31:0]Instruction;
 	wire [PC_WIDTH-1:0] PCnext,ALUR;
-	wire ALUSrc,MemtoReg,Branch,PCWrite,IFIDWrite,CControl,Iguales,IF_Flush,MemRead,MemWrite,RegWrite;
+	wire ALUSrc,MemtoReg,Branch,PCWrite,IFIDWrite,CControl,Iguales,IF_Flush,ID_Flush,EX_Flush,MemRead,MemWrite,RegWrite;
 	wire [1:0] ALUop;
 	wire [REG_DIR_WIDTH-1:0] WriteReg;
 	wire [EXT_OUT_WIDTH-1:0] SignExtendOut;
@@ -111,6 +117,7 @@ module Soc_Mips
 	IF IF (
     .clk(clk), 
     .rst(rst),
+	 .ExceptionCause(ExceptionCause),
 	 .PCWrite(PCWrite),
 	 .Branch(Branch),
 	 .Zero(Iguales),
@@ -125,20 +132,25 @@ module Soc_Mips
 			begin
 				IFID_Instruction  <= 0;
 				IFID_PCNext			<= 0;
+				IFID_PC				<= 0;
 			end
 		else if(IFIDWrite == 1 && IF_Flush == 0)
 			begin
 				IFID_PCNext 		<= PCnext;
 				IFID_Instruction  <= Instruction;
+				IFID_PC				<= PCout;
 			end
-		else if(IF_Flush == 1)
+		else if(IF_Flush == 1)	//IF_Flush, es la señal que elimina la instrucción que entra en caso de salto
 			begin
 				IFID_Instruction  <= 0;
 				IFID_PCNext			<= 0;
-			end
-	
+				IFID_PC 				<= 0;
+			end		
+			
 	ID ID (
+    .clk(clk), 
     .rst(rst),  
+	 .ExceptionCause(ExceptionCause),
     .WriteBack(WriteBack),
 	 .PCNext(IFID_PCNext),
     .Instruction(IFID_Instruction), 
@@ -163,7 +175,13 @@ module Soc_Mips
 	 .RegDst(RegDst),
 	 .Iguales(Iguales),
 	 .IF_Flush(IF_Flush),
-	 .ALUR(ALUR)
+	 .ID_Flush(ID_Flush),
+	 .EX_Flush(EX_Flush),
+	 .ALUR(ALUR),
+	 .Register1(Register1),
+	 .Register2(Register2),
+	 .Register3(Register3),
+	 .Register4(Register4)
     );
 	 
 	 always@(posedge rst or posedge clk)
@@ -176,13 +194,18 @@ module Soc_Mips
 				IDEX_RegisterRt 	  <= 0;
 				IDEX_RegisterRd 	  <= 0;
 				IDEX_RegisterRs 	  <= 0;
+				IDEX_PC				  <= 0;
 			end
 		else
 			begin
-				if(CControl == 1)
+				if(CControl == 1 && ID_Flush == 0)
 					IDEX_ControlSignals <= {RegDst,ALUop[1:0],ALUSrc,MemRead,MemWrite,RegWrite,MemtoReg};
-				else if (CControl == 0)
-					IDEX_ControlSignals <= 0;
+				else if (CControl == 0 || ID_Flush == 1)
+					IDEX_ControlSignals <= 0;	
+				if ( ID_Flush == 0 )
+					IDEX_PC				  <= IFID_PC;
+				else if ( ID_Flush == 1 )
+					IDEX_PC				  <= IDEX_PC;
 					
 				IDEX_ReadData1		  <= readd1;
 				IDEX_ReadData2		  <= readd2;
@@ -205,13 +228,14 @@ module Soc_Mips
 	 .Forward_A(Forward_A),
 	 .Forward_B(Forward_B),
 	 .WBData(WriteBack),
-	 .Address(EXMEM_ALUResult),  //El mismo que entra en Address en la memoria de datos
-    .ALUResult(ALUResult), //Salida de la ALU
+	 .Address(EXMEM_ALUResult),   //El mismo que entra en Address en la memoria de datos
+    .ALUResult(ALUResult), 		//Salida de la ALU
 	 .WriteReg(WriteReg),
 	 .data2(data2),
 	 .data1(Alu1),
 	 .data2_2(Alu2),
-	 .ALUCtrl(ALUOp2)
+	 .ALUCtrl(ALUOp2),
+	 .Ov(Overflow)
     );
 	 
 	 always@(posedge clk or posedge rst)
@@ -224,10 +248,14 @@ module Soc_Mips
 			end
 		else
 			begin
-				EXMEM_ControlSignals <= IDEX_ControlSignals[3:0]; 			//MemRead,MemWrite,RegWrite,MemtoReg
-			   EXMEM_ALUResult		<= ALUResult;
-			   EXMEM_ReadData2		<= data2;
-			   EXMEM_RegisterRd		<= WriteReg;
+				if( EX_Flush == 1 )				
+					EXMEM_ControlSignals <= 0;
+				else if( EX_Flush == 0 )
+					EXMEM_ControlSignals <= IDEX_ControlSignals[3:0]; 			//MemRead,MemWrite,RegWrite,MemtoReg
+					
+				EXMEM_ALUResult		<= ALUResult;
+				EXMEM_ReadData2		<= data2;
+				EXMEM_RegisterRd		<= WriteReg;
 			end     
 
 	 MEM MEM (
@@ -283,5 +311,21 @@ module Soc_Mips
     .IFIDWrite(IFIDWrite), 
     .CControl(CControl)
     );
+	 
+	 ExceptionUnit Exceptions (
+    .Ov(Overflow),
+	 .rst(rst),
+	 .clk(clk),
+    .RegisterRs(IFID_Instruction[25:21]), 
+    .RegisterRt(IFID_Instruction[20:16]), 
+    .RegisterRd(IFID_Instruction[15:11]), 
+    .OPCode(IFID_Instruction[31:26]), 
+    .Function(IFID_Instruction[5:0]), 
+    .IFID_PC(IFID_PC), 
+    .IDEX_PC(IDEX_PC), 
+    .ExceptionCause(ExceptionCause), 
+    .ExceptionPC(ExceptionPC)
+    );
+
 
 endmodule

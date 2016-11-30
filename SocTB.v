@@ -4,9 +4,9 @@
 // Company: 
 // Engineer:
 //
-// Create Date:   18:31:53 12/31/2015
+// Create Date:   16:58:34 01/03/2016
 // Design Name:   Soc_Mips
-// Module Name:   C:/Users/Shao.Surface/Documents/Digital/Lab3v4/SocTB.v
+// Module Name:   C:/Users/Shao.Surface/Documents/Digital/Lab3v5/SocTB.v
 // Project Name:  Lab3
 // Target Device:  
 // Tool versions:  
@@ -29,17 +29,27 @@ module SocTB;
 	reg rst;
 
 	// Outputs
-	wire [5:0] PCout;
 	wire [7:0] WriteBack;
 	wire [2:0] readr1;
 	wire [2:0] readr2;
-	wire [7:0] readd1,readd2,reg1,reg2;
-	wire [7:0] Alu1,Alu2,ALUResult;
+	wire [7:0] Alu1;
+	wire [7:0] Alu2;
+	wire [7:0] ALUResult;
 	wire [2:0] ALUOp2;
-	wire [1:0] Forward_A,Forward_B;
+	wire [7:0] readd1;
+	wire [7:0] readd2;
+	wire [7:0] reg1;
+	wire [7:0] reg2;
+	wire [1:0] Forward_A;
+	wire [1:0] Forward_B;
+	wire Overflow;
+	wire [2:0] ExceptionCause;
+	wire [5:0] ExceptionPC;
 	wire [31:0] IFID_Instruction;
 	wire [5:0] IFID_PCNext;
+	wire [5:0] IFID_PC;
 	wire [7:0] IDEX_ControlSignals;
+	wire [5:0] IDEX_PC;
 	wire [7:0] IDEX_ReadData1;
 	wire [7:0] IDEX_ReadData2;
 	wire [7:0] IDEX_SignExtend;
@@ -54,6 +64,9 @@ module SocTB;
 	wire [7:0] MEMWB_ReadData;
 	wire [7:0] MEMWB_Address;
 	wire [2:0] MEMWB_RegisterRd;
+		wire [5:0] PCout;
+	wire [7:0] Register1,Register2,Register3,Register4;
+
 
 	// Instantiate the Unit Under Test (UUT)
 	Soc_Mips uut (
@@ -63,13 +76,28 @@ module SocTB;
 		.WriteBack(WriteBack), 
 		.readr1(readr1), 
 		.readr2(readr2), 
-		.readd1(readd1),
-		.readd2(readd2),
-		.reg1(reg1),
-		.reg2(reg2),
+		.Alu1(Alu1), 
+		.Alu2(Alu2), 
+		.ALUResult(ALUResult), 
+		.ALUOp2(ALUOp2), 
+		.readd1(readd1), 
+		.readd2(readd2), 
+		.reg1(reg1), 
+		.reg2(reg2), 
+		.Register1(Register1),
+		.Register2(Register2),
+		.Register3(Register3),
+		.Register4(Register4),
+		.Forward_A(Forward_A), 
+		.Forward_B(Forward_B), 
+		.Overflow(Overflow), 
+		.ExceptionCause(ExceptionCause), 
+		.ExceptionPC(ExceptionPC), 
 		.IFID_Instruction(IFID_Instruction), 
 		.IFID_PCNext(IFID_PCNext), 
+		.IFID_PC(IFID_PC), 
 		.IDEX_ControlSignals(IDEX_ControlSignals), 
+		.IDEX_PC(IDEX_PC), 
 		.IDEX_ReadData1(IDEX_ReadData1), 
 		.IDEX_ReadData2(IDEX_ReadData2), 
 		.IDEX_SignExtend(IDEX_SignExtend), 
@@ -78,12 +106,6 @@ module SocTB;
 		.IDEX_RegisterRd(IDEX_RegisterRd), 
 		.EXMEM_ControlSignals(EXMEM_ControlSignals), 
 		.EXMEM_ALUResult(EXMEM_ALUResult), 
-		.Alu1(Alu1),
-		.Alu2(Alu2),
-		.ALUOp2(ALUOp2),
-		.Forward_A(Forward_A),
-		.Forward_B(Forward_B),
-		.ALUResult(ALUResult),
 		.EXMEM_ReadData2(EXMEM_ReadData2), 
 		.EXMEM_RegisterRd(EXMEM_RegisterRd), 
 		.MEMWB_ControlSignals(MEMWB_ControlSignals), 
@@ -92,7 +114,7 @@ module SocTB;
 		.MEMWB_RegisterRd(MEMWB_RegisterRd)
 	);
 
-		initial begin
+initial begin
 		// Initialize Inputs
 		clk = 0;
 		rst = 0;

@@ -29,15 +29,16 @@ module ID
 	parameter DATA_WIDTH = 8,
 	parameter PC_WIDTH = 6,
 	parameter ALU_WIDTH = 8)
-	(input rst,RegWriteBack,
+	(input clk,rst,RegWriteBack,
 	input [DATA_WIDTH-1:0] WriteBack,
 	input [31:0] Instruction,
 	input [PC_WIDTH-1:0] PCNext,
 	input [REG_DIR_WIDTH-1:0] WriteReg,
 	input [REG_DIR_WIDTH-1:0] IFID_RegisterRs, IFID_RegisterRt, IDEX_RegisterRd,
 	input [ALU_WIDTH-1:0] ALUResult,
-	output [REG_WIDTH-1:0] readd1,readd2,reg1,reg2,
-	output ALUSrc,MemtoReg,MemWrite,MemRead,RegWrite,Branch,RegDst,IF_Flush,Iguales,
+	input [2:0] ExceptionCause,
+	output [REG_WIDTH-1:0] readd1,readd2,reg1,reg2,Register1,Register2,Register3,Register4,
+	output ALUSrc,MemtoReg,MemWrite,MemRead,RegWrite,Branch,RegDst,IF_Flush,ID_Flush,EX_Flush,Iguales,
 	output [1:0] ALUop,
 	output [EXT_OUT_WIDTH-1:0] SignExtendOut,
 	output [PC_WIDTH-1:0] ALUR
@@ -46,6 +47,7 @@ module ID
 	 UControl ID1 (
     .op(Instruction[31:26]), 
 	 .Iguales(Iguales),
+	 .ExceptionCause(ExceptionCause),
     .RegWrite(RegWrite), 
     .ALUSrc(ALUSrc), 
     .RegDst(RegDst), 
@@ -54,7 +56,9 @@ module ID
     .Branch(Branch), 
     .MemRead(MemRead), 
     .ALUop(ALUop),
-	 .IF_Flush(IF_Flush)
+	 .IF_Flush(IF_Flush),
+	 .ID_Flush(ID_Flush),
+	 .EX_Flush(EX_Flush)
     );
 		
 	Registers ID2 (
@@ -62,16 +66,21 @@ module ID
     .readr2(Instruction[REG_DIR_WIDTH-1+16:16]), 
     .writer(WriteReg), 
     .writedata(WriteBack), 
+    .clk(clk), 
     .rst(rst), 
     .RegWrite(RegWriteBack), 
     .readd1(readd1), 
-    .readd2(readd2)
+    .readd2(readd2),
+	 .Register1(Register1),
+	 .Register2(Register2),
+	 .Register3(Register3),
+	 .Register4(Register4)
     );
 	 
-	 assign reg1 = (IDEX_RegisterRd == IFID_RegisterRs)?ALUResult:readd1;
+	 assign reg1 = (IDEX_RegisterRd == IFID_RegisterRs)?ALUResult:readd1;		//Control de Anticipación en el caso de saltos
 	 assign reg2 = (IDEX_RegisterRd == IFID_RegisterRt)?ALUResult:readd2;
 	 
-	 assign Iguales = ( reg1 == reg2 )? 1:0;
+	 assign Iguales = ( reg1 == reg2 )? 1:0;		//Es 1 si el valor de ambos registros es igual
 	 
 	 SignExt ID3 (
     .In(Instruction[EXT_IN_WIDTH-1:0]),  

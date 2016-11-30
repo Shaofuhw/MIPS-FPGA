@@ -34,11 +34,12 @@ module EX
 	output [ALU_WIDTH-1:0] ALUResult,
 	output [REG_DIR_WIDTH-1:0] WriteReg,
 	output [ALU_WIDTH-1:0] data1,data2,data2_2,
-	output [2:0] ALUCtrl
+	output [2:0] ALUCtrl,
+	output Ov
    );
 	
-	assign data1 = ( Forward_A == 0 )? readd1:
-						( Forward_A == 1 )? WBData:
+	assign data1 = ( Forward_A == 0 )? readd1:			//Se elige un valor dependiendo del valor de Forward
+						( Forward_A == 1 )? WBData:			//Que proviene del control de anticipación
 						( Forward_A == 2 )? Address: 0;
 						
 	assign data2 = ( Forward_B == 0 )? readd2:
@@ -46,13 +47,14 @@ module EX
 						( Forward_B == 2 )? Address: 0;
 						
 	assign data2_2 = (ALUSrc == 0)? data2:SignExtendOut;
-	assign WriteReg = ( RegDst == 1 )?RegDst1:RegDst2; 
+	assign WriteReg = ( RegDst == 1 )?RegDst1:RegDst2; 	//Se elige el registro Rd
 	
 	ALU EX1 (
     .a(data1), 
     .b(data2_2), 
     .op(ALUCtrl), 
-    .result(ALUResult)
+    .result(ALUResult),
+	 .Ov(Ov)
     );
 	 
 	 ALUCtrl EX2 (

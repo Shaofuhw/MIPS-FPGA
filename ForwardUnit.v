@@ -24,7 +24,9 @@ module ForwardUnit#(
 	input EXMEMRegWrite, MEMWBRegWrite,
 	output [1:0] Forward_A, Forward_B
     );
-
+	
+	//Control de anticipación, es el encargado de colocar un valor u otro en la entrada de la ALU, en caso de necesidad
+	
 	assign Forward_A = ( (EXMEMRegWrite == 1) && (EXMEMRegisterRd != 0) && (EXMEMRegisterRd == IDEXRegisterRs) )? 2:
 							 ( (MEMWBRegWrite == 1) && (MEMWBRegisterRd != 0) && (EXMEMRegisterRd != IDEXRegisterRs) && (MEMWBRegisterRd == IDEXRegisterRs))? 1:0;
 	assign Forward_B = ( (EXMEMRegWrite == 1) && (EXMEMRegisterRd != 0) && (EXMEMRegisterRd == IDEXRegisterRt) )? 2:

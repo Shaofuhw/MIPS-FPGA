@@ -98,6 +98,11 @@ module IMemory
 		begin
 			case(Address)
 				0:Instruction = `CODE_0;
+				//0:Instruction = 32'b00000011111000000000000000100000;	//Prueba para Excepción Registro Rs
+				//0:Instruction = 32'b00000000000111110000000000100000;	//Prueba para Excepción Registro Rt
+				//0:Instruction = 32'b00000000000000001111100000100000;	//Prueba para Excepción Registro Rd
+				//0:Instruction = 32'b11111100000000000000000000100000;	//Prueba para Excepción OPCode
+				//0:Instruction = 32'b00000000000000000000000000000001;	//Prueba para Excepción Function
 				4:Instruction = `CODE_1;
 				8:Instruction = `CODE_2;
 				12:Instruction = `CODE_3;

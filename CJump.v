@@ -30,6 +30,6 @@ module CJump
 	wire [SH_OUT_WIDTH-1:0] ShiftOut;
 	
 	assign ShiftOut = ShiftIn << 2;
-	assign ALUR = ShiftOut + PCNext;
+	assign ALUR = ShiftOut + PCNext;			//Se calcula la dirección de Salto
 
 endmodule

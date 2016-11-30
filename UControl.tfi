@@ -1,0 +1,18 @@
+
+
+
+// Instantiate the module
+UControl instance_name (
+    .op(op), 
+    .RegWrite(RegWrite), 
+    .ALUSrc(ALUSrc), 
+    .RegDst(RegDst), 
+    .MemtoReg(MemtoReg), 
+    .MemWrite(MemWrite), 
+    .Branch(Branch), 
+    .Jump(Jump), 
+    .MemRead(MemRead), 
+    .ALUop(ALUop)
+    );
+
+

@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/Shao.Surface/Documents/Digital/Lab3v1/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/Shao.Surface/Documents/Digital/Lab3v1/xst"
+elaborate
+-ifn CJump.prj
+-ifmt mixed

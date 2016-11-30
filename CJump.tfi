@@ -1,0 +1,13 @@
+
+
+
+// Instantiate the module
+CJump instance_name (
+    .ShiftIn(ShiftIn), 
+    .PCNext(PCNext), 
+    .Branch(Branch), 
+    .Zero(Zero), 
+    .PCJout(PCJout)
+    );
+
+

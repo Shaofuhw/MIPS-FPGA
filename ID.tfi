@@ -1,0 +1,24 @@
+
+
+
+// Instantiate the module
+ID instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .Zero(Zero), 
+    .WriteBack(WriteBack), 
+    .Instruction(Instruction), 
+    .PCnext(PCnext), 
+    .readd1(readd1), 
+    .readd2(readd2), 
+    .ALUSrc(ALUSrc), 
+    .MemtoReg(MemtoReg), 
+    .MemWrite(MemWrite), 
+    .Jump(Jump), 
+    .MemRead(MemRead), 
+    .ALUop(ALUop), 
+    .PCJout(PCJout), 
+    .SignExtendOut(SignExtendOut)
+    );
+
+

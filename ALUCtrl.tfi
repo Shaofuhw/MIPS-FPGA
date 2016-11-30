@@ -1,0 +1,11 @@
+
+
+
+// Instantiate the module
+ALUCtrl instance_name (
+    .ALUop(ALUop), 
+    .funct(funct), 
+    .ALUCtrl(ALUCtrl)
+    );
+
+

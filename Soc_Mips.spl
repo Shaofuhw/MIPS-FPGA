@@ -1,0 +1,8 @@
+[Inputs]
+clk
+rst
+[Outputs]
+[BiDir]
+[ATTRIBUTES]
+VeriModel Soc_Mips
+

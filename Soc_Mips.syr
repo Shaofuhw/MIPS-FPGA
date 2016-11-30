@@ -1,0 +1,797 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.42 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.42 secs
+ 
+--> Reading design: Soc_Mips.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Soc_Mips.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Soc_Mips"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : Soc_Mips
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "UControl.v" in library work
+Compiling verilog file "SignExt.v" in library work
+Module <UControl> compiled
+Compiling verilog file "Registers.v" in library work
+Module <SignExt> compiled
+Compiling verilog file "PC.v" in library work
+Module <Registers> compiled
+Compiling verilog file "IMemory.v" in library work
+Module <PC> compiled
+Compiling verilog file "CJump.v" in library work
+Module <IMemory> compiled
+Compiling verilog file "ALUCtrl.v" in library work
+Module <CJump> compiled
+Compiling verilog file "ALU.v" in library work
+Module <ALUCtrl> compiled
+Compiling verilog file "WB.v" in library work
+Module <ALU> compiled
+Compiling verilog file "MEM.v" in library work
+Module <WB> compiled
+Compiling verilog file "IF.v" in library work
+Module <MEM> compiled
+Compiling verilog file "ID.v" in library work
+Module <IF> compiled
+Compiling verilog file "EX.v" in library work
+Module <ID> compiled
+Compiling verilog file "Soc_Mips.v" in library work
+Module <EX> compiled
+Module <Soc_Mips> compiled
+No errors in compilation
+Analysis of file <"Soc_Mips.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <Soc_Mips> in library <work> with parameters.
+	ALU_WIDTH = "00000000000000000000000000001000"
+	CODE_DEPTH = "00000000000000000000000000010000"
+	CODE_DIR_WIDTH = "00000000000000000000000000000100"
+	DATA_DEPTH = "00000000000000000000000000000100"
+	DATA_DIR_WIDTH = "00000000000000000000000000001000"
+	DATA_WIDTH = "00000000000000000000000000001000"
+	EXT_IN_WIDTH = "00000000000000000000000000000110"
+	EXT_OUT_WIDTH = "00000000000000000000000000001000"
+	PC_WIDTH = "00000000000000000000000000000110"
+	REG_DIR_WIDTH = "00000000000000000000000000000011"
+	REG_FILE_DEPTH = "00000000000000000000000000001000"
+	REG_WIDTH = "00000000000000000000000000001000"
+	SH_IN_WIDTH = "00000000000000000000000000001000"
+	SH_OUT_WIDTH = "00000000000000000000000000000110"
+
+Analyzing hierarchy for module <IF> in library <work> with parameters.
+	CODE_DEPTH = "00000000000000000000000000010000"
+	CODE_DIR_WIDTH = "00000000000000000000000000000100"
+	PC_WIDTH = "00000000000000000000000000000110"
+
+Analyzing hierarchy for module <ID> in library <work> with parameters.
+	DATA_WIDTH = "00000000000000000000000000001000"
+	EXT_IN_WIDTH = "00000000000000000000000000000110"
+	EXT_OUT_WIDTH = "00000000000000000000000000001000"
+	PC_WIDTH = "00000000000000000000000000000110"
+	REG_DIR_WIDTH = "00000000000000000000000000000011"
+	REG_FILE_DEPTH = "00000000000000000000000000001000"
+	REG_WIDTH = "00000000000000000000000000001000"
+	SH_IN_WIDTH = "00000000000000000000000000001000"
+	SH_OUT_WIDTH = "00000000000000000000000000000110"
+
+Analyzing hierarchy for module <EX> in library <work> with parameters.
+	ALU_WIDTH = "00000000000000000000000000001000"
+	EXT_OUT_WIDTH = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <MEM> in library <work> with parameters.
+	DATA_DEPTH = "00000000000000000000000000000100"
+	DATA_DIR_WIDTH = "00000000000000000000000000001000"
+	DATA_WIDTH = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <WB> in library <work> with parameters.
+	DATA_WIDTH = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <PC> in library <work> with parameters.
+	PC_WIDTH = "00000000000000000000000000000110"
+
+Analyzing hierarchy for module <IMemory> in library <work> with parameters.
+	PC_WIDTH = "00000000000000000000000000000110"
+
+Analyzing hierarchy for module <UControl> in library <work>.
+
+Analyzing hierarchy for module <Registers> in library <work> with parameters.
+	REG_DIR_WIDTH = "00000000000000000000000000000011"
+	REG_FILE_DEPTH = "00000000000000000000000000001000"
+	REG_WIDTH = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <SignExt> in library <work> with parameters.
+	EXT_IN_WIDTH = "00000000000000000000000000000110"
+	EXT_OUT_WIDTH = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <CJump> in library <work> with parameters.
+	PC_WIDTH = "00000000000000000000000000000110"
+	SH_IN_WIDTH = "00000000000000000000000000001000"
+	SH_OUT_WIDTH = "00000000000000000000000000000110"
+
+Analyzing hierarchy for module <ALU> in library <work> with parameters.
+	ALU_WIDTH = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <ALUCtrl> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <Soc_Mips>.
+	ALU_WIDTH = 32'sb00000000000000000000000000001000
+	CODE_DEPTH = 32'sb00000000000000000000000000010000
+	CODE_DIR_WIDTH = 32'sb00000000000000000000000000000100
+	DATA_DEPTH = 32'sb00000000000000000000000000000100
+	DATA_DIR_WIDTH = 32'sb00000000000000000000000000001000
+	DATA_WIDTH = 32'sb00000000000000000000000000001000
+	EXT_IN_WIDTH = 32'sb00000000000000000000000000000110
+	EXT_OUT_WIDTH = 32'sb00000000000000000000000000001000
+	PC_WIDTH = 32'sb00000000000000000000000000000110
+	REG_DIR_WIDTH = 32'sb00000000000000000000000000000011
+	REG_FILE_DEPTH = 32'sb00000000000000000000000000001000
+	REG_WIDTH = 32'sb00000000000000000000000000001000
+	SH_IN_WIDTH = 32'sb00000000000000000000000000001000
+	SH_OUT_WIDTH = 32'sb00000000000000000000000000000110
+Module <Soc_Mips> is correct for synthesis.
+ 
+Analyzing module <IF> in library <work>.
+	CODE_DEPTH = 32'sb00000000000000000000000000010000
+	CODE_DIR_WIDTH = 32'sb00000000000000000000000000000100
+	PC_WIDTH = 32'sb00000000000000000000000000000110
+Module <IF> is correct for synthesis.
+ 
+Analyzing module <PC> in library <work>.
+	PC_WIDTH = 32'sb00000000000000000000000000000110
+Module <PC> is correct for synthesis.
+ 
+Analyzing module <IMemory> in library <work>.
+	PC_WIDTH = 32'sb00000000000000000000000000000110
+Module <IMemory> is correct for synthesis.
+ 
+Analyzing module <ID> in library <work>.
+	DATA_WIDTH = 32'sb00000000000000000000000000001000
+	EXT_IN_WIDTH = 32'sb00000000000000000000000000000110
+	EXT_OUT_WIDTH = 32'sb00000000000000000000000000001000
+	PC_WIDTH = 32'sb00000000000000000000000000000110
+	REG_DIR_WIDTH = 32'sb00000000000000000000000000000011
+	REG_FILE_DEPTH = 32'sb00000000000000000000000000001000
+	REG_WIDTH = 32'sb00000000000000000000000000001000
+	SH_IN_WIDTH = 32'sb00000000000000000000000000001000
+	SH_OUT_WIDTH = 32'sb00000000000000000000000000000110
+Module <ID> is correct for synthesis.
+ 
+Analyzing module <UControl> in library <work>.
+Module <UControl> is correct for synthesis.
+ 
+Analyzing module <Registers> in library <work>.
+	REG_DIR_WIDTH = 32'sb00000000000000000000000000000011
+	REG_FILE_DEPTH = 32'sb00000000000000000000000000001000
+	REG_WIDTH = 32'sb00000000000000000000000000001000
+Module <Registers> is correct for synthesis.
+ 
+Analyzing module <SignExt> in library <work>.
+	EXT_IN_WIDTH = 32'sb00000000000000000000000000000110
+	EXT_OUT_WIDTH = 32'sb00000000000000000000000000001000
+Module <SignExt> is correct for synthesis.
+ 
+Analyzing module <CJump> in library <work>.
+	PC_WIDTH = 32'sb00000000000000000000000000000110
+	SH_IN_WIDTH = 32'sb00000000000000000000000000001000
+	SH_OUT_WIDTH = 32'sb00000000000000000000000000000110
+Module <CJump> is correct for synthesis.
+ 
+Analyzing module <EX> in library <work>.
+	ALU_WIDTH = 32'sb00000000000000000000000000001000
+	EXT_OUT_WIDTH = 32'sb00000000000000000000000000001000
+Module <EX> is correct for synthesis.
+ 
+Analyzing module <ALU> in library <work>.
+	ALU_WIDTH = 32'sb00000000000000000000000000001000
+Module <ALU> is correct for synthesis.
+ 
+Analyzing module <ALUCtrl> in library <work>.
+Module <ALUCtrl> is correct for synthesis.
+ 
+Analyzing module <MEM> in library <work>.
+	DATA_DEPTH = 32'sb00000000000000000000000000000100
+	DATA_DIR_WIDTH = 32'sb00000000000000000000000000001000
+	DATA_WIDTH = 32'sb00000000000000000000000000001000
+Module <MEM> is correct for synthesis.
+ 
+Analyzing module <WB> in library <work>.
+	DATA_WIDTH = 32'sb00000000000000000000000000001000
+Module <WB> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+INFO:Xst:2679 - Register <i> in unit <Registers> has a constant value of 1000 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <i> in unit <MEM> has a constant value of 100 during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <MEM>.
+    Related source file is "MEM.v".
+WARNING:Xst:647 - Input <Address<7:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 8-bit 4-to-1 multiplexer for signal <$varindex0000> created at line 47.
+    Found 32-bit register for signal <RegFile>.
+    Summary:
+	inferred  16 D-type flip-flop(s).
+	inferred   8 Multiplexer(s).
+Unit <MEM> synthesized.
+
+
+Synthesizing Unit <WB>.
+    Related source file is "WB.v".
+Unit <WB> synthesized.
+
+
+Synthesizing Unit <PC>.
+    Related source file is "PC.v".
+    Found 6-bit register for signal <PCout>.
+    Summary:
+	inferred   6 D-type flip-flop(s).
+Unit <PC> synthesized.
+
+
+Synthesizing Unit <IMemory>.
+    Related source file is "IMemory.v".
+    Found 16x32-bit ROM for signal <Instruction$mux0000>.
+    Summary:
+	inferred   1 ROM(s).
+Unit <IMemory> synthesized.
+
+
+Synthesizing Unit <UControl>.
+    Related source file is "UControl.v".
+Unit <UControl> synthesized.
+
+
+Synthesizing Unit <Registers>.
+    Related source file is "Registers.v".
+    Found 8-bit 8-to-1 multiplexer for signal <$varindex0000> created at line 43.
+    Found 8-bit 8-to-1 multiplexer for signal <$varindex0001> created at line 46.
+    Found 3-bit comparator equal for signal <readd1$cmp_eq0001> created at line 43.
+    Found 3-bit comparator equal for signal <readd2$cmp_eq0001> created at line 46.
+    Found 64-bit register for signal <RegFile>.
+    Summary:
+	inferred  64 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred  16 Multiplexer(s).
+Unit <Registers> synthesized.
+
+
+Synthesizing Unit <SignExt>.
+    Related source file is "SignExt.v".
+Unit <SignExt> synthesized.
+
+
+Synthesizing Unit <CJump>.
+    Related source file is "CJump.v".
+WARNING:Xst:647 - Input <ShiftIn<7:6>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 6-bit adder for signal <ALUR>.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <CJump> synthesized.
+
+
+Synthesizing Unit <ALU>.
+    Related source file is "ALU.v".
+WARNING:Xst:1305 - Output <z> is never assigned. Tied to value 0.
+WARNING:Xst:646 - Signal <Zero> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:737 - Found 1-bit latch for signal <Ov>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 1-bit xor2 for signal <Ov$xor0000> created at line 37.
+    Found 1-bit xor2 for signal <Ov$xor0001> created at line 37.
+    Found 1-bit xor2 for signal <Ov$xor0002> created at line 44.
+    Found 8-bit comparator less for signal <result$cmp_lt0000> created at line 49.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+Unit <ALU> synthesized.
+
+
+Synthesizing Unit <ALUCtrl>.
+    Related source file is "ALUCtrl.v".
+    Found 3-bit 4-to-1 multiplexer for signal <ALUCtrl>.
+    Summary:
+	inferred   3 Multiplexer(s).
+Unit <ALUCtrl> synthesized.
+
+
+Synthesizing Unit <IF>.
+    Related source file is "IF.v".
+    Found 6-bit adder for signal <PCnext>.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <IF> synthesized.
+
+
+Synthesizing Unit <ID>.
+    Related source file is "ID.v".
+WARNING:Xst:647 - Input <Instruction<25:24>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <Instruction<20>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <Instruction<15>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <Instruction<10:6>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+Unit <ID> synthesized.
+
+
+Synthesizing Unit <EX>.
+    Related source file is "EX.v".
+WARNING:Xst:646 - Signal <ov> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <EX> synthesized.
+
+
+Synthesizing Unit <Soc_Mips>.
+    Related source file is "Soc_Mips.v".
+Unit <Soc_Mips> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 16x32-bit ROM                                         : 1
+# Adders/Subtractors                                   : 4
+ 6-bit adder                                           : 2
+ 8-bit adder                                           : 1
+ 8-bit subtractor                                      : 1
+# Registers                                            : 13
+ 6-bit register                                        : 1
+ 8-bit register                                        : 12
+# Latches                                              : 1
+ 1-bit latch                                           : 1
+# Comparators                                          : 3
+ 3-bit comparator equal                                : 2
+ 8-bit comparator less                                 : 1
+# Multiplexers                                         : 4
+ 3-bit 4-to-1 multiplexer                              : 1
+ 8-bit 4-to-1 multiplexer                              : 1
+ 8-bit 8-to-1 multiplexer                              : 2
+# Xors                                                 : 3
+ 1-bit xor2                                            : 3
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 16x32-bit ROM                                         : 1
+# Adders/Subtractors                                   : 4
+ 6-bit adder                                           : 2
+ 8-bit adder                                           : 1
+ 8-bit subtractor                                      : 1
+# Registers                                            : 102
+ Flip-Flops                                            : 102
+# Latches                                              : 1
+ 1-bit latch                                           : 1
+# Comparators                                          : 3
+ 3-bit comparator equal                                : 2
+ 8-bit comparator less                                 : 1
+# Multiplexers                                         : 18
+ 1-bit 8-to-1 multiplexer                              : 16
+ 3-bit 4-to-1 multiplexer                              : 1
+ 8-bit 4-to-1 multiplexer                              : 1
+# Xors                                                 : 3
+ 1-bit xor2                                            : 3
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <IF/IF1/PCout_0> (without init value) has a constant value of 0 in block <Soc_Mips>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <IF/IF1/PCout_1> (without init value) has a constant value of 0 in block <Soc_Mips>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <Soc_Mips> ...
+
+Optimizing unit <Registers> ...
+
+Optimizing unit <ALU> ...
+
+Optimizing unit <MEM> ...
+
+Optimizing unit <EX> ...
+WARNING:Xst:2677 - Node <EX/EX1/Ov> of sequential type is unconnected in block <Soc_Mips>.
+
+Mapping all equations...
+WARNING:Xst:2170 - Unit Soc_Mips : the following signal(s) form a combinatorial loop: EX/EX1/_old_result_2<0>, WriteBack<0>, Data<7>, EX/EX1/result<0>6, MEM/_varindex0000<0>, EX/EX1/Msub__old_result_2_lut<0>, MEM/_varindex0000<7>, ALUResult<0>, WriteBack<7>, MEM/Mmux__varindex0000_47, readd1<7>, MEM/Mmux__varindex0000_4, Data<0>, readd1<0>.
+WARNING:Xst:2170 - Unit Soc_Mips : the following signal(s) form a combinatorial loop: Data<1>, EX/data2<1>, WriteBack<6>, EX/EX1/result<1>11, EX/EX1/result<1>22, MEM/_varindex0000<6>, Data<6>, WriteBack<1>, MEM/_varindex0000<1>, ALUResult<1>, readd2<1>, readd1<6>.
+WARNING:Xst:2170 - Unit Soc_Mips : the following signal(s) form a combinatorial loop: EX/data2<5>, readd1<5>, readd2<5>, WriteBack<5>, EX/EX1/result<5>22, EX/EX1/result<5>11, ALUResult<5>.
+WARNING:Xst:2170 - Unit Soc_Mips : the following signal(s) form a combinatorial loop: ALUResult<4>, EX/data2<4>, readd1<4>, WriteBack<4>, readd2<4>, EX/EX1/result<4>11, EX/EX1/result<4>22.
+WARNING:Xst:2170 - Unit Soc_Mips : the following signal(s) form a combinatorial loop: WriteBack<3>, readd1<3>, ALUResult<3>, EX/EX1/result<3>11, EX/EX1/result<3>22, readd2<3>, EX/data2<3>.
+WARNING:Xst:2170 - Unit Soc_Mips : the following signal(s) form a combinatorial loop: WriteBack<2>, EX/EX1/result<2>18, readd1<2>, ALUResult<2>.
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Soc_Mips, actual ratio is 3.
+FlipFlop IF/IF1/PCout_2 has been replicated 1 time(s)
+FlipFlop IF/IF1/PCout_3 has been replicated 1 time(s)
+FlipFlop IF/IF1/PCout_4 has been replicated 1 time(s)
+FlipFlop IF/IF1/PCout_5 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 72
+ Flip-Flops                                            : 72
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : Soc_Mips.ngr
+Top Level Output File Name         : Soc_Mips
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 113
+
+Cell Usage :
+# BELS                             : 282
+#      GND                         : 1
+#      INV                         : 2
+#      LUT2                        : 32
+#      LUT3                        : 94
+#      LUT3_D                      : 1
+#      LUT3_L                      : 2
+#      LUT4                        : 49
+#      LUT4_D                      : 1
+#      MUXCY                       : 22
+#      MUXF5                       : 45
+#      MUXF6                       : 16
+#      VCC                         : 1
+#      XORCY                       : 16
+# FlipFlops/Latches                : 72
+#      FDC                         : 8
+#      FDCE                        : 61
+#      FDPE                        : 3
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 112
+#      IBUF                        : 1
+#      OBUF                        : 111
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                      122  out of   4656     2%  
+ Number of Slice Flip Flops:             72  out of   9312     0%  
+ Number of 4 input LUTs:                181  out of   9312     1%  
+ Number of IOs:                         113
+ Number of bonded IOBs:                 113  out of    232    48%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 72    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+rst                                | IBUF                   | 72    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 59.890ns (Maximum Frequency: 16.697MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: 64.932ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 59.890ns (frequency: 16.697MHz)
+  Total number of paths / destination ports: 103080632 / 136
+-------------------------------------------------------------------------
+Delay:               59.890ns (Levels of Logic = 54)
+  Source:            IF/IF1/PCout_2_1 (FF)
+  Destination:       ID/ID2/RegFile_4_7 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: IF/IF1/PCout_2_1 to ID/ID2/RegFile_4_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              8   0.591   0.932  IF/IF1/PCout_2_1 (IF/IF1/PCout_2_1)
+     LUT4:I0->O           26   0.704   1.435  IF/IF2/Mrom_Instruction_mux0000161 (IF/IF2/Mrom_Instruction_mux000016)
+     LUT3:I0->O            1   0.704   0.000  ID/ID2/mux9_5 (ID/ID2/mux9_5)
+     MUXF5:I0->O           1   0.321   0.000  ID/ID2/mux9_3_f5 (ID/ID2/mux9_3_f5)
+     MUXF6:I1->O           1   0.521   0.455  ID/ID2/mux9_2_f6 (ID/ID2/_varindex0001<1>)
+     LUT4:I2->O            6   0.704   0.748  ID/ID2/readd2<1>1 (readd2_1_OBUF)
+     LUT3:I1->O            3   0.704   0.610  EX/data2<1>1 (EX/data2<1>)
+     LUT2:I1->O            1   0.704   0.000  EX/EX1/Msub__old_result_2_lut<1> (EX/EX1/Msub__old_result_2_lut<1>)
+     MUXCY:S->O            1   0.464   0.000  EX/EX1/Msub__old_result_2_cy<1> (EX/EX1/Msub__old_result_2_cy<1>)
+     XORCY:CI->O           1   0.804   0.424  EX/EX1/Msub__old_result_2_xor<2> (EX/EX1/_old_result_2<2>)
+     LUT4:I3->O            1   0.704   0.424  EX/EX1/result<2>2 (EX/EX1/result<2>2)
+     LUT4:I3->O            2   0.704   0.482  EX/EX1/result<2>41 (ALUResult_2_OBUF)
+     LUT3:I2->O            7   0.704   0.787  WB/WriteBack<2>1 (WriteBack_2_OBUF)
+     LUT4:I1->O            4   0.704   0.587  ID/ID2/readd1<2>1 (readd1_2_OBUF)
+     MUXCY:DI->O           1   0.888   0.000  EX/EX1/Madd__old_result_1_cy<2> (EX/EX1/Madd__old_result_1_cy<2>)
+     XORCY:CI->O           2   0.804   0.526  EX/EX1/Madd__old_result_1_xor<3> (EX/EX1/_old_result_1<3>)
+     LUT3:I1->O            1   0.704   0.000  EX/EX1/result<3>402 (EX/EX1/result<3>401)
+     MUXF5:I0->O           2   0.321   0.482  EX/EX1/result<3>40_f5 (ALUResult_3_OBUF)
+     LUT3:I2->O            7   0.704   0.787  WB/WriteBack<3>1 (WriteBack_3_OBUF)
+     LUT4:I1->O            4   0.704   0.587  ID/ID2/readd1<3>1 (readd1_3_OBUF)
+     MUXCY:DI->O           1   0.888   0.000  EX/EX1/Madd__old_result_1_cy<3> (EX/EX1/Madd__old_result_1_cy<3>)
+     XORCY:CI->O           2   0.804   0.526  EX/EX1/Madd__old_result_1_xor<4> (EX/EX1/_old_result_1<4>)
+     LUT3:I1->O            1   0.704   0.000  EX/EX1/result<4>402 (EX/EX1/result<4>401)
+     MUXF5:I0->O           2   0.321   0.482  EX/EX1/result<4>40_f5 (ALUResult_4_OBUF)
+     LUT3:I2->O            7   0.704   0.787  WB/WriteBack<4>1 (WriteBack_4_OBUF)
+     LUT4:I1->O            4   0.704   0.587  ID/ID2/readd1<4>1 (readd1_4_OBUF)
+     MUXCY:DI->O           1   0.888   0.000  EX/EX1/Madd__old_result_1_cy<4> (EX/EX1/Madd__old_result_1_cy<4>)
+     XORCY:CI->O           2   0.804   0.526  EX/EX1/Madd__old_result_1_xor<5> (EX/EX1/_old_result_1<5>)
+     LUT3:I1->O            1   0.704   0.000  EX/EX1/result<5>402 (EX/EX1/result<5>401)
+     MUXF5:I0->O           2   0.321   0.482  EX/EX1/result<5>40_f5 (ALUResult_5_OBUF)
+     LUT3:I2->O            7   0.704   0.787  WB/WriteBack<5>1 (WriteBack_5_OBUF)
+     LUT4:I1->O            4   0.704   0.587  ID/ID2/readd1<5>1 (readd1_5_OBUF)
+     MUXCY:DI->O           1   0.888   0.000  EX/EX1/Madd__old_result_1_cy<5> (EX/EX1/Madd__old_result_1_cy<5>)
+     XORCY:CI->O           2   0.804   0.526  EX/EX1/Madd__old_result_1_xor<6> (EX/EX1/_old_result_1<6>)
+     LUT3:I1->O            1   0.704   0.000  EX/EX1/result<6>402 (EX/EX1/result<6>401)
+     MUXF5:I0->O           2   0.321   0.482  EX/EX1/result<6>40_f5 (ALUResult_6_OBUF)
+     LUT3:I2->O            7   0.704   0.787  WB/WriteBack<6>1 (WriteBack_6_OBUF)
+     LUT4:I1->O            4   0.704   0.666  ID/ID2/readd1<6>1 (readd1_6_OBUF)
+     LUT2:I1->O            1   0.704   0.000  EX/EX1/Mcompar_result_cmp_lt0000_lut<6> (EX/EX1/Mcompar_result_cmp_lt0000_lut<6>)
+     MUXCY:S->O            1   0.464   0.000  EX/EX1/Mcompar_result_cmp_lt0000_cy<6> (EX/EX1/Mcompar_result_cmp_lt0000_cy<6>)
+     MUXCY:CI->O           1   0.459   0.420  EX/EX1/Mcompar_result_cmp_lt0000_cy<7> (EX/EX1/Mcompar_result_cmp_lt0000_cy<7>)
+     INV:I->O              1   0.704   0.455  EX/EX1/Mcompar_result_cmp_lt0000_cy<7>_inv_INV_0 (EX/EX1/result_cmp_lt0000)
+     LUT4:I2->O            1   0.704   0.000  EX/EX1/result<0>491 (EX/EX1/result<0>49)
+     MUXF5:I1->O          22   0.321   1.339  EX/EX1/result<0>49_f5 (ALUResult_0_OBUF)
+     LUT3:I0->O            1   0.704   0.000  MEM/Mmux__varindex0000_3 (MEM/Mmux__varindex0000_3)
+     MUXF5:I1->O           1   0.321   0.595  MEM/Mmux__varindex0000_2_f5 (MEM/_varindex0000<0>)
+     LUT2:I0->O            2   0.704   0.526  MEM/ReadData<0>1 (Data_0_OBUF)
+     LUT3:I1->O            7   0.704   0.787  WB/WriteBack<0>2 (WriteBack_0_OBUF)
+     LUT4:I1->O            4   0.704   0.587  ID/ID2/readd1<0>3 (readd1_0_OBUF)
+     MUXCY:DI->O           1   0.888   0.000  EX/EX1/Madd__old_result_1_cy<0> (EX/EX1/Madd__old_result_1_cy<0>)
+     XORCY:CI->O           2   0.804   0.526  EX/EX1/Madd__old_result_1_xor<1> (EX/EX1/_old_result_1<1>)
+     LUT3:I1->O            1   0.704   0.000  EX/EX1/result<1>402 (EX/EX1/result<1>401)
+     MUXF5:I0->O          14   0.321   1.175  EX/EX1/result<1>40_f5 (ALUResult_1_OBUF)
+     LUT4:I0->O            2   0.704   0.526  MEM/ReadData<7>1 (Data_7_OBUF)
+     LUT3:I1->O            7   0.704   0.000  WB/WriteBack<7>1 (WriteBack_7_OBUF)
+     FDCE:D                    0.308          ID/ID2/RegFile_2_7
+    ----------------------------------------
+    Total                     59.890ns (36.463ns logic, 23.427ns route)
+                                       (60.9% logic, 39.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 16364364 / 89
+-------------------------------------------------------------------------
+Offset:              64.932ns (Levels of Logic = 56)
+  Source:            IF/IF1/PCout_2_1 (FF)
+  Destination:       readd1<7> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: IF/IF1/PCout_2_1 to readd1<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              8   0.591   0.932  IF/IF1/PCout_2_1 (IF/IF1/PCout_2_1)
+     LUT4:I0->O           26   0.704   1.435  IF/IF2/Mrom_Instruction_mux0000161 (IF/IF2/Mrom_Instruction_mux000016)
+     LUT3:I0->O            1   0.704   0.000  ID/ID2/mux9_5 (ID/ID2/mux9_5)
+     MUXF5:I0->O           1   0.321   0.000  ID/ID2/mux9_3_f5 (ID/ID2/mux9_3_f5)
+     MUXF6:I1->O           1   0.521   0.455  ID/ID2/mux9_2_f6 (ID/ID2/_varindex0001<1>)
+     LUT4:I2->O            6   0.704   0.748  ID/ID2/readd2<1>1 (readd2_1_OBUF)
+     LUT3:I1->O            3   0.704   0.610  EX/data2<1>1 (EX/data2<1>)
+     LUT2:I1->O            1   0.704   0.000  EX/EX1/Msub__old_result_2_lut<1> (EX/EX1/Msub__old_result_2_lut<1>)
+     MUXCY:S->O            1   0.464   0.000  EX/EX1/Msub__old_result_2_cy<1> (EX/EX1/Msub__old_result_2_cy<1>)
+     XORCY:CI->O           1   0.804   0.424  EX/EX1/Msub__old_result_2_xor<2> (EX/EX1/_old_result_2<2>)
+     LUT4:I3->O            1   0.704   0.424  EX/EX1/result<2>2 (EX/EX1/result<2>2)
+     LUT4:I3->O            2   0.704   0.482  EX/EX1/result<2>41 (ALUResult_2_OBUF)
+     LUT3:I2->O            7   0.704   0.787  WB/WriteBack<2>1 (WriteBack_2_OBUF)
+     LUT4:I1->O            4   0.704   0.587  ID/ID2/readd1<2>1 (readd1_2_OBUF)
+     MUXCY:DI->O           1   0.888   0.000  EX/EX1/Madd__old_result_1_cy<2> (EX/EX1/Madd__old_result_1_cy<2>)
+     XORCY:CI->O           2   0.804   0.526  EX/EX1/Madd__old_result_1_xor<3> (EX/EX1/_old_result_1<3>)
+     LUT3:I1->O            1   0.704   0.000  EX/EX1/result<3>402 (EX/EX1/result<3>401)
+     MUXF5:I0->O           2   0.321   0.482  EX/EX1/result<3>40_f5 (ALUResult_3_OBUF)
+     LUT3:I2->O            7   0.704   0.787  WB/WriteBack<3>1 (WriteBack_3_OBUF)
+     LUT4:I1->O            4   0.704   0.587  ID/ID2/readd1<3>1 (readd1_3_OBUF)
+     MUXCY:DI->O           1   0.888   0.000  EX/EX1/Madd__old_result_1_cy<3> (EX/EX1/Madd__old_result_1_cy<3>)
+     XORCY:CI->O           2   0.804   0.526  EX/EX1/Madd__old_result_1_xor<4> (EX/EX1/_old_result_1<4>)
+     LUT3:I1->O            1   0.704   0.000  EX/EX1/result<4>402 (EX/EX1/result<4>401)
+     MUXF5:I0->O           2   0.321   0.482  EX/EX1/result<4>40_f5 (ALUResult_4_OBUF)
+     LUT3:I2->O            7   0.704   0.787  WB/WriteBack<4>1 (WriteBack_4_OBUF)
+     LUT4:I1->O            4   0.704   0.587  ID/ID2/readd1<4>1 (readd1_4_OBUF)
+     MUXCY:DI->O           1   0.888   0.000  EX/EX1/Madd__old_result_1_cy<4> (EX/EX1/Madd__old_result_1_cy<4>)
+     XORCY:CI->O           2   0.804   0.526  EX/EX1/Madd__old_result_1_xor<5> (EX/EX1/_old_result_1<5>)
+     LUT3:I1->O            1   0.704   0.000  EX/EX1/result<5>402 (EX/EX1/result<5>401)
+     MUXF5:I0->O           2   0.321   0.482  EX/EX1/result<5>40_f5 (ALUResult_5_OBUF)
+     LUT3:I2->O            7   0.704   0.787  WB/WriteBack<5>1 (WriteBack_5_OBUF)
+     LUT4:I1->O            4   0.704   0.587  ID/ID2/readd1<5>1 (readd1_5_OBUF)
+     MUXCY:DI->O           1   0.888   0.000  EX/EX1/Madd__old_result_1_cy<5> (EX/EX1/Madd__old_result_1_cy<5>)
+     XORCY:CI->O           2   0.804   0.526  EX/EX1/Madd__old_result_1_xor<6> (EX/EX1/_old_result_1<6>)
+     LUT3:I1->O            1   0.704   0.000  EX/EX1/result<6>402 (EX/EX1/result<6>401)
+     MUXF5:I0->O           2   0.321   0.482  EX/EX1/result<6>40_f5 (ALUResult_6_OBUF)
+     LUT3:I2->O            7   0.704   0.787  WB/WriteBack<6>1 (WriteBack_6_OBUF)
+     LUT4:I1->O            4   0.704   0.666  ID/ID2/readd1<6>1 (readd1_6_OBUF)
+     LUT2:I1->O            1   0.704   0.000  EX/EX1/Mcompar_result_cmp_lt0000_lut<6> (EX/EX1/Mcompar_result_cmp_lt0000_lut<6>)
+     MUXCY:S->O            1   0.464   0.000  EX/EX1/Mcompar_result_cmp_lt0000_cy<6> (EX/EX1/Mcompar_result_cmp_lt0000_cy<6>)
+     MUXCY:CI->O           1   0.459   0.420  EX/EX1/Mcompar_result_cmp_lt0000_cy<7> (EX/EX1/Mcompar_result_cmp_lt0000_cy<7>)
+     INV:I->O              1   0.704   0.455  EX/EX1/Mcompar_result_cmp_lt0000_cy<7>_inv_INV_0 (EX/EX1/result_cmp_lt0000)
+     LUT4:I2->O            1   0.704   0.000  EX/EX1/result<0>491 (EX/EX1/result<0>49)
+     MUXF5:I1->O          22   0.321   1.339  EX/EX1/result<0>49_f5 (ALUResult_0_OBUF)
+     LUT3:I0->O            1   0.704   0.000  MEM/Mmux__varindex0000_3 (MEM/Mmux__varindex0000_3)
+     MUXF5:I1->O           1   0.321   0.595  MEM/Mmux__varindex0000_2_f5 (MEM/_varindex0000<0>)
+     LUT2:I0->O            2   0.704   0.526  MEM/ReadData<0>1 (Data_0_OBUF)
+     LUT3:I1->O            7   0.704   0.787  WB/WriteBack<0>2 (WriteBack_0_OBUF)
+     LUT4:I1->O            4   0.704   0.587  ID/ID2/readd1<0>3 (readd1_0_OBUF)
+     MUXCY:DI->O           1   0.888   0.000  EX/EX1/Madd__old_result_1_cy<0> (EX/EX1/Madd__old_result_1_cy<0>)
+     XORCY:CI->O           2   0.804   0.526  EX/EX1/Madd__old_result_1_xor<1> (EX/EX1/_old_result_1<1>)
+     LUT3:I1->O            1   0.704   0.000  EX/EX1/result<1>402 (EX/EX1/result<1>401)
+     MUXF5:I0->O          14   0.321   1.175  EX/EX1/result<1>40_f5 (ALUResult_1_OBUF)
+     LUT4:I0->O            2   0.704   0.526  MEM/ReadData<7>1 (Data_7_OBUF)
+     LUT3:I1->O            7   0.704   0.787  WB/WriteBack<7>1 (WriteBack_7_OBUF)
+     LUT4:I1->O            4   0.704   0.587  ID/ID2/readd1<7>1 (readd1_7_OBUF)
+     OBUF:I->O                 3.272          readd1_7_OBUF (readd1<7>)
+    ----------------------------------------
+    Total                     64.932ns (40.131ns logic, 24.801ns route)
+                                       (61.8% logic, 38.2% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 22.00 secs
+Total CPU time to Xst completion: 21.77 secs
+ 
+--> 
+
+Total memory usage is 301636 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   19 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
+

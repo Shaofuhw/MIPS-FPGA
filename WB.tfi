@@ -1,0 +1,12 @@
+
+
+
+// Instantiate the module
+WB instance_name (
+    .MemtoReg(MemtoReg), 
+    .ALUr(ALUr), 
+    .ReadD(ReadD), 
+    .WriteBack(WriteBack)
+    );
+
+

@@ -1,0 +1,10 @@
+
+
+
+// Instantiate the module
+IMemory instance_name (
+    .Address(Address), 
+    .Instruction(Instruction)
+    );
+
+

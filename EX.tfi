@@ -1,0 +1,16 @@
+
+
+
+// Instantiate the module
+EX instance_name (
+    .readd1(readd1), 
+    .readd2(readd2), 
+    .ALUop(ALUop), 
+    .ALUSrc(ALUSrc), 
+    .SignExtendOut(SignExtendOut), 
+    .funct(funct), 
+    .ALUResult(ALUResult), 
+    .Zero(Zero)
+    );
+
+

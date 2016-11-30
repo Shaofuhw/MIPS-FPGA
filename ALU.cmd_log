@@ -1,0 +1,3 @@
+vhdtdtfi -lang verilog -prj Lab3 -o C:/Users/Shao.Surface/Documents/Digital/Lab3/ALU.tfi -lib work C:/Users/Shao.Surface/Documents/Digital/Lab3//ALU.v -module ALU -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj Lab3 -o C:/Users/Shao.Surface/Documents/Digital/Lab3/ALU.tfi -lib work C:/Users/Shao.Surface/Documents/Digital/Lab3//ALU.v -module ALU -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj Lab3 -o C:/Users/Shao.Surface/Documents/Digital/Lab3v1/ALU.tfi -lib work C:/Users/Shao.Surface/Documents/Digital/Lab3v1//ALU.v -module ALU -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

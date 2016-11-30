@@ -1,0 +1,13 @@
+
+
+
+// Instantiate the module
+IF instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .jmp_address(jmp_address), 
+    .PCnext(PCnext), 
+    .Instruction(Instruction)
+    );
+
+

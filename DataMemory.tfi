@@ -1,0 +1,15 @@
+
+
+
+// Instantiate the module
+DataMemory instance_name (
+    .rst(rst), 
+    .clk(clk), 
+    .Address(Address), 
+    .WriteData(WriteData), 
+    .MemWrite(MemWrite), 
+    .MemRead(MemRead), 
+    .ReadData(ReadData)
+    );
+
+

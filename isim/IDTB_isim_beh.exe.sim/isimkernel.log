@@ -1,0 +1,29 @@
+Command line:
+   IDTB_isim_beh.exe
+     -simmode  gui
+     -simrunnum  1
+     -socket  52215
+
+Fri Jan 08 10:43:25 2016
+
+
+ Elaboration Time: 1.70313 sec
+
+ Current Memory Usage: 1334.95 Meg
+
+ Total Signals          : 72
+ Total Nets             : 119
+ Total Signal Drivers   : 30
+ Total Blocks           : 7
+ Total Primitive Blocks : 5
+ Total Processes        : 33
+ Total Traceable Variables  : 43
+ Total Scalar Nets and Variables : 888
+Total Line Count : 60
+
+ Total Simulation Time: 1.78125 sec
+
+ Current Memory Usage: 1334.92 Meg
+
+Fri Jan 08 10:44:03 2016
+

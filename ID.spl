@@ -1,0 +1,22 @@
+[Inputs]
+clk
+rst
+Zero
+=WriteBack[7:0]=
+=Instruction[31:0]=
+=PCnext[5:0]=
+[Outputs]
+ALUSrc
+MemtoReg
+MemWrite
+MemRead
+RegWrite
+=readd1[7:0]=
+=readd2[7:0]=
+=ALUop[1:0]=
+=PCJout[5:0]=
+=SignExtendOut[7:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel ID
+

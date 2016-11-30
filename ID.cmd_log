@@ -1,0 +1,15 @@
+vhdtdtfi -lang verilog -prj Lab3 -o C:/Users/Shao.Surface/Documents/Digital/Lab3/ID.tfi -lib work C:/Users/Shao.Surface/Documents/Digital/Lab3//ID.v -module ID -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj Lab3 -o C:/Users/Shao.Surface/Documents/Digital/Lab3/ID.tfi -lib work C:/Users/Shao.Surface/Documents/Digital/Lab3//ID.v -module ID -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3/ID.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3/ID.syr" 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3/ID.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3/ID.syr" 
+vhdtdtfi -lang verilog -prj Lab3 -o C:/Users/Shao.Surface/Documents/Digital/Lab3/ID.tfi -lib work C:/Users/Shao.Surface/Documents/Digital/Lab3//ID.v -module ID -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj Lab3 -o C:/Users/Shao.Surface/Documents/Digital/Lab3/ID.tfi -lib work C:/Users/Shao.Surface/Documents/Digital/Lab3//ID.v -module ID -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj Lab3 -o C:/Users/Shao.Surface/Documents/Digital/Lab3/ID.tfi -lib work C:/Users/Shao.Surface/Documents/Digital/Lab3//ID.v -module ID -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj Lab3 -o C:/Users/Shao.Surface/Documents/Digital/Lab3/ID.tfi -lib work C:/Users/Shao.Surface/Documents/Digital/Lab3//ID.v -module ID -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj Lab3 -o C:/Users/Shao.Surface/Documents/Digital/Lab3/ID.tfi -lib work C:/Users/Shao.Surface/Documents/Digital/Lab3//ID.v -module ID -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj Lab3 -o C:/Users/Shao.Surface/Documents/Digital/Lab3/ID.tfi -lib work C:/Users/Shao.Surface/Documents/Digital/Lab3//ID.v -module ID -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj Lab3 -o C:/Users/Shao.Surface/Documents/Digital/Lab3/ID.tfi -lib work C:/Users/Shao.Surface/Documents/Digital/Lab3//ID.v -module ID -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3/ID.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3/ID.syr" 
+vhdtdtfi -lib work C:/Users/Shao.Surface/Documents/Digital/Lab3v1/ID.v -lang verilog -prj Lab3 -o ID.spl -module ID -template C:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e ID.spl C:/Users/Shao.Surface/Documents/Digital/Lab3v1/ID.sym 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3v1/ID.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3v1/ID.syr" 

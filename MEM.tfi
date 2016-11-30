@@ -1,0 +1,15 @@
+
+
+
+// Instantiate the module
+MEM instance_name (
+    .clk(clk), 
+    .rst(rst), 
+    .MemWrite(MemWrite), 
+    .MemRead(MemRead), 
+    .Address(Address), 
+    .WriteData(WriteData), 
+    .Data(Data)
+    );
+
+

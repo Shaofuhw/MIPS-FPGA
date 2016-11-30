@@ -1,0 +1,3 @@
+verilog work "PC.v"
+verilog work "IMemory.v"
+verilog work "IF.v"

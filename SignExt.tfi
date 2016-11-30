@@ -1,0 +1,11 @@
+
+
+
+// Instantiate the module
+SignExt instance_name (
+    .In(In), 
+    .clk(clk), 
+    .Out(Out)
+    );
+
+

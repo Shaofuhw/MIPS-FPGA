@@ -1,0 +1,6 @@
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3/PC.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3/PC.syr" 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3/PC.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3/PC.syr" 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3/PC.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3/PC.syr" 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3/PC.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3/PC.syr" 
+xst -intstyle ise -ifn "C:/Users/Shao.Surface/Documents/Digital/Lab3/PC.xst" -ofn "C:/Users/Shao.Surface/Documents/Digital/Lab3/PC.syr" 
+vhdtdtfi -lang verilog -prj Lab3 -o C:/Users/Shao.Surface/Documents/Digital/Lab3/PC.tfi -lib work C:/Users/Shao.Surface/Documents/Digital/Lab3//PC.v -module PC -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
